@@ -26,9 +26,9 @@ packages
   |   └─ drizzle orm (postgresql database)
   ├─ env
   |   └─ @t3-oss/env-core (shared, validated env)
-  └─ ui
-      ├─ tailwindcss
-      └─ shadcn & radix ui
+  ├─ ui
+  |   ├─ tailwindcss
+  |   └─ shadcn & radix ui
 tools
   ├─ eslint
   ├─ prettier
