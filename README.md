@@ -191,11 +191,11 @@ docker compose run --rm drizzle
 pnpm db:push
 ```
 
-and opening the web url in your browser:
+You can then open the web link below in your browser:
 
 - http://localhost:8085
 
-Please note that these containers are not run in development mode. For further
+Please note that these containers are run in production mode. For further
 details, see
 
 - [compose.yaml](compose.yaml)
