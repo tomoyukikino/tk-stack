@@ -2,6 +2,7 @@ FROM node:22-alpine AS base
 
 WORKDIR /app
 
+ENV NODE_ENV=production
 ENV TURBO_TELEMETRY_DISABLED=1
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"

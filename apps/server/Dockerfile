@@ -1,5 +1,7 @@
 FROM node:22-alpine AS base
 
+ENV NODE_ENV=production
+
 WORKDIR /app
 
 # =========================================================================== #
