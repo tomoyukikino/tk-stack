@@ -19,7 +19,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/server/package.json ./apps/server/package.json
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
-    pnpm install --frozen-lockfile --filter=server
+    pnpm install --frozen-lockfile
 
 COPY . ./
 
