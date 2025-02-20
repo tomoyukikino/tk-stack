@@ -34,6 +34,13 @@ app.use(
   }),
 );
 
+app.use(
+  wildcardPath.TRPC,
+  cors({
+    origin: [env.PUBLIC_WEB_URL],
+  }),
+);
+
 app.use(wildcardPath.ALL, async (c, next) => {
   const session = await auth.api.getSession({ headers: c.req.raw.headers });
   c.set('user', session?.user ?? null);
