@@ -22,7 +22,5 @@ RUN pnpm build --filter=web
 FROM nginx:stable-alpine
 WORKDIR /app
 
-COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
+COPY apps/web/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/apps/web/dist /usr/share/nginx/html
-
-EXPOSE 80

@@ -2,7 +2,10 @@ import { createEnv } from '@t3-oss/env-core';
 import * as v from 'valibot';
 
 const DEFAULT_API_PORT = 3035;
+const DEFAULT_API_HOST = 'localhost';
+
 const DEFAULT_WEB_PORT = 8085;
+const DEFAULT_WEB_HOST = 'localhost';
 
 // Note: your vite apps must also define `envPrefix` to be the same.
 export const CLIENT_ENV_PREFIX = 'PUBLIC_';
@@ -41,10 +44,16 @@ export const createValidatedEnv = (
       DATABASE_URL: v.string(),
 
       API_PORT: createPortSchema({ defaultPort: DEFAULT_API_PORT }),
-      API_HOST: v.pipe(v.string(), v.minLength(1)),
+      API_HOST: v.pipe(
+        v.optional(v.string(), DEFAULT_API_HOST),
+        v.minLength(1),
+      ),
 
       WEB_PORT: createPortSchema({ defaultPort: DEFAULT_WEB_PORT }),
-      WEB_HOST: v.pipe(v.string(), v.minLength(1)),
+      WEB_HOST: v.pipe(
+        v.optional(v.string(), DEFAULT_WEB_HOST),
+        v.minLength(1),
+      ),
     },
 
     skipValidation:

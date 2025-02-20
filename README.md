@@ -92,7 +92,7 @@ pnpm install
 cp .env.example .env
 
 # Start a local postgres instance in the background (e.g. using docker)
-docker compose --file ./packages/db/postgres.local.yaml up --detach
+docker compose up db --detach
 
 # Push drizzle schema to your database
 pnpm db:push
@@ -170,6 +170,27 @@ pnpm clean                  # remove all .cache, .turbo, dist, node_modules
 
 pnpx codemod pnpm/catalog   # migrate dependencies to pnpm-workspace.yaml
 ```
+
+## Containerisation (Docker/Podman)
+
+Both the `web` and `server` applications have been containerised. You can start
+see this in action by running the commands:
+
+```bash
+# Start all applications
+docker-compose up --build
+
+# Set up the database schemas (you only need to do this once)
+pnpm db:push
+```
+
+Please note that these containers are not run in development mode. For further
+details, see
+
+- [compose.yaml](compose.yaml)
+- [apps/server/Dockerfile](apps/server/Dockerfile)
+- [apps/web/Dockerfile](apps/web/Dockerfile)
+- [apps/web/nginx.conf](apps/web/nginx.conf)
 
 ## Caveats
 
