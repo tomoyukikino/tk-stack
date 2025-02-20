@@ -3,21 +3,19 @@ services:
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
+      args:
+        # WEB_HOST and WEB_PORT aren't important as we are using nginx
+        # to serve the compiled dist on port 80
+        # We only need to provide the backend URL:
+        PUBLIC_API_URL: 'http://localhost:3035'
     ports:
       - 8085:80
-    environment:
-      - WEB_HOST=0.0.0.0
-      - WEB_PORT=80
-      - PUBLIC_API_URL=http://localhost:3035
     healthcheck:
       interval: 30s
       timeout: 10s
       retries: 3
       test:
-        [
-          'CMD-SHELL',
-          'curl --fail --silent http://$$WEB_HOST:$$WEB_PORT/healthcheck',
-        ]
+        ['CMD-SHELL', 'curl --fail --silent http://localhost:80/healthcheck']
     depends_on:
       - server
 

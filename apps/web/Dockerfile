@@ -24,6 +24,9 @@ RUN turbo prune web --docker
 
 FROM base AS installer
 
+ARG PUBLIC_API_URL
+ENV PUBLIC_API_URL=${PUBLIC_API_URL}
+
 COPY --from=builder /app/out/json/ .
 RUN pnpm install --frozen-lockfile
 
@@ -40,6 +43,6 @@ COPY apps/web/nginx.conf /etc/nginx/nginx.conf
 COPY --from=installer /app/apps/web/dist /usr/share/nginx/html
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-  CMD curl --fail --silent http://${WEB_HOST}:${WEB_PORT}/healthcheck || exit 1
+  CMD curl --fail --silent http://0.0.0.0:80/healthcheck || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
