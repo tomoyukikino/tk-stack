@@ -347,6 +347,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.20.1(jiti@2.4.2)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.7.3
       vite:
         specifier: 'catalog:'
         version: 6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3)(yaml@2.7.0)

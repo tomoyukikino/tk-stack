@@ -49,6 +49,7 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react-swc": "catalog:",
     "eslint": "catalog:",
+    "typescript": "catalog:",
     "vite": "catalog:"
   }
 }
