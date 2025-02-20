@@ -1,19 +1,21 @@
 FROM node:22-alpine AS build
 
 WORKDIR /app
+
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+ENV CI=1
 RUN corepack enable pnpm
 
-COPY package.json ./
-COPY pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/web/package.json ./apps/web/package.json
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm install --frozen-lockfile --filter=web
 
 COPY . ./
 
-RUN pnpm build
+RUN pnpm build --filter=web
 
 # =========================================================================== #
 
@@ -22,9 +24,5 @@ WORKDIR /app
 
 COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/apps/web/dist /usr/share/nginx/html
-
-ENV WEB_PORT=80
-ENV WEB_HOST=0.0.0.0
-ENV PUBLIC_WEB_URL=http://0.0.0.0:80
 
 EXPOSE 80
