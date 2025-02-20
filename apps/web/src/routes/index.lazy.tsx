@@ -3,6 +3,7 @@ import { authClient } from '@repo/auth/client';
 import { Button } from '@repo/ui/components/button';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import { useTheme } from 'next-themes';
+import { postsLinkOptions } from '@/cons/posts-link-options';
 
 export const Route = createLazyFileRoute('/')({
   component: RouteComponent,
@@ -49,7 +50,7 @@ function RouteComponent() {
       <div className="mt-2 flex gap-x-1.5">
         Click{' '}
         <Link
-          to="/posts"
+          {...postsLinkOptions}
           className="flex items-center gap-x-1 text-blue-500 underline"
         >
           here <Link2Icon className="mt-0.5" />
