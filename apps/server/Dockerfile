@@ -23,8 +23,6 @@ COPY . ./
 
 RUN pnpm build --filter=server
 
-RUN pnpm prune --prod
-
 # =========================================================================== #
 
 FROM base AS runner
@@ -34,9 +32,7 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 hono
 
-COPY --from=builder --chown=hono:nodejs /app/apps/server/node_modules /app/node_modules
 COPY --from=builder --chown=hono:nodejs /app/apps/server/dist /app/dist
-COPY --from=builder --chown=hono:nodejs /app/apps/server/package.json /app/package.json
 
 USER hono
 
