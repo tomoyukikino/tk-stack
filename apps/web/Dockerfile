@@ -2,9 +2,11 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
+ENV TURBO_TELEMETRY_DISABLED=1
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV CI=1
+
 RUN corepack enable pnpm
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
@@ -20,6 +22,9 @@ RUN pnpm build --filter=web
 # =========================================================================== #
 
 FROM nginx:stable-alpine
+
+ENV TURBO_TELEMETRY_DISABLED=1
+
 WORKDIR /app
 
 COPY apps/web/nginx.conf /etc/nginx/nginx.conf

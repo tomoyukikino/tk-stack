@@ -1,5 +1,7 @@
 FROM node:22-alpine AS base
 
+ENV TURBO_TELEMETRY_DISABLED=1
+
 # =========================================================================== #
 
 FROM base AS builder
