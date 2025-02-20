@@ -23,7 +23,6 @@ services:
       - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
       - API_PORT=3000
       - API_HOST=0.0.0.0
-      - PUBLIC_API_URL=http://localhost:3035
       - PUBLIC_WEB_URL=http://localhost:8085
     depends_on:
       - db

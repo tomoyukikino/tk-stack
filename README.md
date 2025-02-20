@@ -178,7 +178,7 @@ see this in action by running the commands:
 
 ```bash
 # Start all applications
-docker-compose up --build
+docker-compose up
 
 # Set up the database schemas (you only need to do this once)
 pnpm db:push

@@ -28,8 +28,22 @@ export const createValidatedEnv = (
 
     clientPrefix: CLIENT_ENV_PREFIX,
     client: {
-      PUBLIC_API_URL: v.pipe(v.string(), v.minLength(1), v.url()),
-      PUBLIC_WEB_URL: v.pipe(v.string(), v.minLength(1), v.url()),
+      PUBLIC_API_URL: v.pipe(
+        v.optional(
+          v.string(),
+          `http://${runtimeEnv.API_HOST ?? DEFAULT_API_HOST}:${runtimeEnv.API_PORT ?? DEFAULT_API_PORT}`,
+        ),
+        v.minLength(1),
+        v.url(),
+      ),
+      PUBLIC_WEB_URL: v.pipe(
+        v.optional(
+          v.string(),
+          `http://${runtimeEnv.WEB_HOST ?? DEFAULT_WEB_HOST}:${runtimeEnv.WEB_PORT ?? DEFAULT_WEB_PORT}`,
+        ),
+        v.minLength(1),
+        v.url(),
+      ),
     },
 
     shared: {
