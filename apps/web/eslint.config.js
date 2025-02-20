@@ -6,7 +6,7 @@ export default [
   ...reactConfig,
   ...restrictEnvAccess,
   {
-    files: ['drizzle.config.ts'],
+    files: ['vite.config.ts'],
     rules: {
       'no-restricted-properties': 'off',
     },

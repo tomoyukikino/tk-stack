@@ -45,7 +45,8 @@
     "PUBLIC_API_URL",
     "WEB_PORT",
     "WEB_URL",
-    "PUBLIC_WEB_URL"
+    "PUBLIC_WEB_URL",
+    "PROD"
   ],
   "globalPassThroughEnv": ["NODE_ENV", "CI", "npm_lifecycle_event"]
 }
