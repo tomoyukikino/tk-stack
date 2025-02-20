@@ -2,10 +2,7 @@ FROM node:22-alpine AS base
 
 WORKDIR /app
 
-# =========================================================================== #
-
-FROM base AS pnpm-base
-
+ENV TURBO_TELEMETRY_DISABLED=1
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV CI=1
@@ -14,9 +11,7 @@ RUN corepack enable pnpm
 
 # =========================================================================== #
 
-FROM pnpm-base AS builder
-
-ENV TURBO_TELEMETRY_DISABLED=1
+FROM base AS builder
 
 RUN pnpm install --global turbo@^2
 
@@ -27,9 +22,7 @@ RUN turbo prune web --docker
 
 # =========================================================================== #
 
-FROM pnpm-base AS installer
-
-ENV TURBO_TELEMETRY_DISABLED=1
+FROM base AS installer
 
 COPY --from=builder /app/out/json/ .
 RUN pnpm install --frozen-lockfile
@@ -39,7 +32,7 @@ RUN pnpm build
 
 # =========================================================================== #
 
-FROM nginx:stable-alpine
+FROM nginx:stable-alpine AS production
 
 WORKDIR /app
 

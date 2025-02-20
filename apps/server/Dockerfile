@@ -1,13 +1,12 @@
 FROM node:22-alpine AS base
 
-ENV TURBO_TELEMETRY_DISABLED=1
-
 WORKDIR /app
 
 # =========================================================================== #
 
-FROM base AS pnpm-base
+FROM base AS builder-base
 
+ENV TURBO_TELEMETRY_DISABLED=1
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV CI=1
@@ -16,7 +15,7 @@ RUN corepack enable pnpm
 
 # =========================================================================== #
 
-FROM pnpm-base AS builder
+FROM builder-base AS builder
 
 RUN pnpm install --global turbo@^2
 
@@ -27,7 +26,7 @@ RUN turbo prune server --docker
 
 # =========================================================================== #
 
-FROM pnpm-base AS installer
+FROM builder-base AS installer
 
 COPY --from=builder /app/out/json/ .
 RUN pnpm install --frozen-lockfile
@@ -37,7 +36,7 @@ RUN pnpm build
 
 # =========================================================================== #
 
-FROM base AS runner
+FROM base AS production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 hono
