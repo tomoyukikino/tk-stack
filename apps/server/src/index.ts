@@ -38,6 +38,7 @@ app.use(
   wildcardPath.TRPC,
   cors({
     origin: [env.PUBLIC_WEB_URL],
+    credentials: true,
   }),
 );
 
