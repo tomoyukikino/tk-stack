@@ -6,9 +6,18 @@ services:
     ports:
       - 8085:80
     environment:
-      - WEB_PORT=80
       - WEB_HOST=0.0.0.0
+      - WEB_PORT=80
       - PUBLIC_API_URL=http://localhost:3035
+    healthcheck:
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      test:
+        [
+          'CMD-SHELL',
+          'curl --fail --silent http://$$WEB_HOST:$$WEB_PORT/healthcheck',
+        ]
     depends_on:
       - server
 
@@ -21,9 +30,18 @@ services:
     environment:
       - AUTH_SECRET=please_change_this_in_production
       - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
-      - API_PORT=3000
       - API_HOST=0.0.0.0
+      - API_PORT=3000
       - PUBLIC_WEB_URL=http://localhost:8085
+    healthcheck:
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      test:
+        [
+          'CMD-SHELL',
+          'wget --quiet --spider http://$$API_HOST:$$API_PORT/healthcheck',
+        ]
     depends_on:
       - db
 
@@ -37,6 +55,11 @@ services:
       POSTGRES_DB: postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      test: ['CMD', 'pg_isready', '-U', 'postgres', '-d', 'postgres']
 
 volumes:
   postgres_data:

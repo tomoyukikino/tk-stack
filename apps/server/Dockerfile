@@ -40,4 +40,7 @@ COPY --from=builder --chown=hono:nodejs /app/apps/server/package.json /app/packa
 
 USER hono
 
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+  CMD wget --quiet --spider http://${API_HOST}:${API_PORT}/healthcheck || exit 1
+
 CMD ["node", "/app/dist/index.js"]

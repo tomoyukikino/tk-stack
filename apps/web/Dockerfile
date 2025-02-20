@@ -24,3 +24,8 @@ WORKDIR /app
 
 COPY apps/web/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/apps/web/dist /usr/share/nginx/html
+
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+  CMD curl --fail --silent http://${WEB_HOST}:${WEB_PORT}/healthcheck || exit 1
+
+CMD ["nginx", "-g", "daemon off;"]
