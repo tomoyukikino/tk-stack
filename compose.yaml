@@ -59,5 +59,19 @@ services:
       retries: 3
       test: ['CMD', 'pg_isready', '-U', 'postgres', '-d', 'postgres']
 
+  drizzle:
+    restart: 'no'
+    command: /bin/sh
+    build:
+      context: .
+      dockerfile: ./packages/db/Dockerfile
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+      - TURBO_UI=true
+    profiles:
+      # Using profile to avoid starting this container this by default.
+      # We only want to use this for pnpm db:push to apply the schema
+      - drizzle
+
 volumes:
   postgres_data:

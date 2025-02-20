@@ -180,7 +180,14 @@ see this in action by running the commands:
 # Start all applications
 docker-compose up
 
-# Set up the database schemas (you only need to do this once)
+# Push drizzle schema to your database - while you can use `pnpm db:push` on
+# the host machine if you have installed all the required dependencies, it is
+# also possible to do everything within docker.
+# Open a second terminal and run the command:
+docker compose run --rm drizzle
+
+# Upon completion, you will be inside the `drizzle` docker container instead
+# of the host machine. It is now possible to push the schema with:
 pnpm db:push
 ```
 
