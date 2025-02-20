@@ -184,6 +184,10 @@ docker-compose up
 pnpm db:push
 ```
 
+and opening the web url in your browser:
+
+- http://localhost:8085
+
 Please note that these containers are not run in development mode. For further
 details, see
 
