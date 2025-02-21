@@ -82,8 +82,12 @@ Ensure the following tools are available on your system:
 ### Setup
 
 ```bash
-# Create a repository using the rt-stack template
-pnpm dlx create-turbo@latest -e https://github.com/nktnet1/rt-stack
+# Create a repository using the rt-stack template (replace YOUR_PROJECT)
+# Select pnpm as the package manager in the prompt
+pnpm dlx create-turbo@latest -e https://github.com/nktnet1/rt-stack YOUR_PROJECT
+
+# Enter the directory or open in your IDE (replace YOUR_PROJECT)
+cd YOUR_PROJECT
 
 # Install all dependencies for apps and packages
 pnpm install
