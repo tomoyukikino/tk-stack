@@ -1,6 +1,6 @@
 import { authClient } from '@repo/auth/client';
 import { Link } from '@tanstack/react-router';
-import { postsLinkOptions } from '@/cons/posts-link-options';
+import { postsLinkOptions } from '@/validations/posts-link-options';
 import UserAvatar from '@/routes/-components/layout/nav/user-avatar';
 
 const activeClassName = 'underline decoration-2 opacity-70';

@@ -3,7 +3,7 @@ import { authClient } from '@repo/auth/client';
 import { Button } from '@repo/ui/components/button';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import { useTheme } from 'next-themes';
-import { postsLinkOptions } from '@/cons/posts-link-options';
+import { postsLinkOptions } from '@/validations/posts-link-options';
 
 export const Route = createLazyFileRoute('/')({
   component: RouteComponent,
