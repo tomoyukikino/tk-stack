@@ -1,7 +1,7 @@
 # RT Stack
 
 A modern [turborepo](https://turbo.build/repo/docs) template for building
-fullstack projects with modular components, shared configs and 100% type-safety.
+fullstack projects with modular components, shared configs, containerised deployments and 100% type-safety.
 
 ## About
 
@@ -42,7 +42,7 @@ View all catalog dependencies in [pnpm-workspace.yaml](pnpm-workspace.yaml).
 
 The following features are implemented out-of-the-box:
 
-- login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password))
+- login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password)) credentials provider
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
