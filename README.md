@@ -119,7 +119,7 @@ By default the following URLs will be accesibile:
 
 ### Working with a single package
 
-Use [pnpm --filter=<name>](https://pnpm.io/filtering) (where `<name>` is defined in the `package.json` of each package).
+Use [`pnpm --filter=<name>`](https://pnpm.io/filtering) (where `<name>` is defined in the `package.json` of each package).
 
 Example usage:
 
