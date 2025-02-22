@@ -6,12 +6,6 @@ import react from '@vitejs/plugin-react-swc';
 import * as v from 'valibot';
 import { defineConfig } from 'vite';
 
-const envSchema = v.object({
-  PUBLIC_WEB_URL: v.pipe(v.string(), v.url()),
-});
-
-const env = v.parse(envSchema, process.env);
-
 /**
  * Fixes issue with "__dirname is not defined in ES module scope"
  * https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/
@@ -27,6 +21,13 @@ const __dirname = path.dirname(__filename);
  * Since vite is only used during development, we can assume the structure
  * will resemble a URL such as: http://localhost:3035
  */
+const envSchema = v.object({
+  PUBLIC_WEB_URL: v.pipe(
+    v.optional(v.string(), 'http://localhost:3035'),
+    v.url(),
+  ),
+});
+const env = v.parse(envSchema, process.env);
 const webUrl = new URL(env.PUBLIC_WEB_URL);
 const WEB_HOST = webUrl.hostname;
 const WEB_PORT = parseInt(webUrl.port, 10);
