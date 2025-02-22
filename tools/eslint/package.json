@@ -29,5 +29,8 @@
     "globals": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:"
+  },
+  "dependencies": {
+    "eslint-config-turbo": "^2.4.2"
   }
 }

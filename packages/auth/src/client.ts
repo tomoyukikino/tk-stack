@@ -1,6 +1,14 @@
-import { env } from '@repo/env';
-import { createAuthClient } from 'better-auth/react';
+import { createAuthClient as createBetterAuthClient } from 'better-auth/react';
 
-export const authClient = createAuthClient({
-  baseURL: env.PUBLIC_API_URL,
-});
+export interface AuthClientOptions {
+  apiBaseUrl: string;
+}
+
+export type AuthClient = ReturnType<typeof createBetterAuthClient>;
+
+export const createAuthClient = ({
+  apiBaseUrl,
+}: AuthClientOptions): AuthClient =>
+  createBetterAuthClient({
+    baseURL: apiBaseUrl,
+  });

@@ -20,10 +20,8 @@
   "dependencies": {
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
-    "@repo/env": "workspace:*",
     "@trpc/client": "catalog:",
     "@trpc/server": "catalog:",
-    "@types/pg": "catalog:",
     "superjson": "catalog:",
     "url-join": "catalog:",
     "valibot": "catalog:"

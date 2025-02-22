@@ -1,5 +1,6 @@
 import { createFileRoute, stripSearchParams } from '@tanstack/react-router';
-import { queryClient, trpc } from '@/router';
+import { queryClient } from '@/clients/queryClient';
+import { trpc } from '@/router';
 import {
   postsSearchSchema,
   postsSearchDefaults,

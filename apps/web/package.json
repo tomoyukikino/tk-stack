@@ -5,20 +5,20 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "format": "prettier --check .  --ignore-path .prettierignore --ignore-path ../../.gitignore",
     "clean": "git clean -xdf .cache dist .turbo node_modules",
-    "env-vite-runner": "dotenv -e ../../.env -- vite --configLoader runner",
+    "env-vite-runner": "dotenv -- vite --configLoader runner",
     "dev": "pnpm env-vite-runner dev",
     "build": "pnpm env-vite-runner build",
     "preview": "pnpm env-vite-runner preview",
-    "start": "pnpm env-vite-runner"
+    "start": "pnpm env-vite-runner",
+    "copy-example-dotenv": "shx -- cp -n .env.example .env"
   },
   "dependencies": {
     "@radix-ui/react-icons": "catalog:",
     "@repo/auth": "workspace:*",
-    "@repo/env": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-form": "catalog:",
@@ -49,6 +49,7 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react-swc": "catalog:",
     "eslint": "catalog:",
+    "shx": "^0.3.4",
     "typescript": "catalog:",
     "vite": "catalog:"
   }

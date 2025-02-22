@@ -5,8 +5,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./server": "./src/server.ts",
-    "./client": "./src/client.ts"
+    "./client": "./src/client.ts",
+    "./server": "./src/server.ts"
   },
   "scripts": {
     "dev": "tsc",
@@ -21,7 +21,6 @@
   "dependencies": {
     "@auth/drizzle-adapter": "catalog:",
     "@repo/db": "workspace:*",
-    "@repo/env": "workspace:*",
     "better-auth": "catalog:"
   },
   "devDependencies": {

@@ -1,12 +1,15 @@
-import { createValidatedEnv } from '@repo/env/create';
+import * as v from 'valibot';
 import type { Config } from 'drizzle-kit';
 
-const env = createValidatedEnv();
+const envSchema = v.object({
+  DATABASE_URL: v.pipe(v.string(), v.minLength(1)),
+});
 
-if (!env.DATABASE_URL) {
-  throw new Error('Missing DATABASE_URL');
-}
+const env = v.parse(envSchema, process.env);
 
+console.log(env);
+
+// Supabase pooling URL uses 6543, which we don't need for migrations
 const nonPoolingUrl = env.DATABASE_URL.replace(':6543', ':5432');
 
 export default {

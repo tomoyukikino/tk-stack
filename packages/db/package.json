@@ -26,11 +26,11 @@
     "push": "pnpm with-env drizzle-kit push",
     "studio": "pnpm with-env drizzle-kit studio",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "with-env": "dotenv -e ../../.env --"
+    "with-env": "dotenv --",
+    "copy-example-dotenv": "shx -- cp -n .env.example .env"
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
-    "@repo/env": "workspace:*",
     "drizzle-orm": "catalog:",
     "drizzle-valibot": "catalog:",
     "pg": "catalog:",
@@ -45,6 +45,7 @@
     "dotenv-cli": "catalog:",
     "drizzle-kit": "catalog:",
     "eslint": "catalog:",
+    "shx": "^0.3.4",
     "typescript": "catalog:"
   }
 }

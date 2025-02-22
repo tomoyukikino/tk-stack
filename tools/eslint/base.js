@@ -2,6 +2,7 @@
 
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import turboConfig from 'eslint-config-turbo/flat';
 import eslintPluginImport from 'eslint-plugin-import';
 import turboPlugin from 'eslint-plugin-turbo';
 import tseslint from 'typescript-eslint';
@@ -18,7 +19,7 @@ export const restrictEnvAccess = tseslint.config(
           object: 'process',
           property: 'env',
           message:
-            "Use `import { env } from '@repo/env'` instead to ensure validated types.",
+            'Avoid using process.env directly - validate your types with valibot (example in ./apps/server/env.ts)',
         },
       ],
       'no-restricted-imports': [
@@ -27,7 +28,7 @@ export const restrictEnvAccess = tseslint.config(
           name: 'process',
           importNames: ['env'],
           message:
-            "Use `import { env } from '@repo/envv'` instead to ensure validated types.",
+            'Avoid using process.env directly - validate your types with valibot (example in ./apps/server/env.ts)',
         },
       ],
     },
@@ -35,6 +36,7 @@ export const restrictEnvAccess = tseslint.config(
 );
 
 export default tseslint.config([
+  ...turboConfig,
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,

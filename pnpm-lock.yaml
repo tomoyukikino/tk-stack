@@ -39,9 +39,6 @@ catalogs:
     '@radix-ui/react-toast':
       specifier: ^1.2.6
       version: 1.2.6
-    '@t3-oss/env-core':
-      specifier: ^0.12.0
-      version: 0.12.0
     '@tailwindcss/vite':
       specifier: 4.0.7
       version: 4.0.7
@@ -140,7 +137,7 @@ catalogs:
       version: 8.13.3
     prettier:
       specifier: ^3.5.1
-      version: 3.5.1
+      version: 3.5.2
     radix-ui:
       specifier: ^1.1.3
       version: 1.1.3
@@ -200,7 +197,7 @@ importers:
         version: link:tools/prettier
       prettier:
         specifier: 'catalog:'
-        version: 3.5.1
+        version: 3.5.2
       turbo:
         specifier: 'catalog:'
         version: 2.4.2
@@ -219,12 +216,15 @@ importers:
       '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@repo/env':
+      '@repo/db':
         specifier: workspace:*
-        version: link:../../packages/env
+        version: link:../../packages/db
       hono:
         specifier: 'catalog:'
         version: 4.7.2
+      valibot:
+        specifier: 'catalog:'
+        version: 1.0.0-rc.1(typescript@5.7.3)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -244,6 +244,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.21.0(jiti@2.4.2)
+      shx:
+        specifier: ^0.3.4
+        version: 0.3.4
       tsup:
         specifier: ^8.3.6
         version: 8.3.6(@swc/core@1.10.18)(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.3)(typescript@5.7.3)
@@ -262,9 +265,6 @@ importers:
       '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../../packages/env
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -347,6 +347,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.21.0(jiti@2.4.2)
+      shx:
+        specifier: ^0.3.4
+        version: 0.3.4
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
@@ -362,18 +365,12 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../db
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       '@trpc/client':
         specifier: 'catalog:'
         version: 11.0.0-rc.802(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(typescript@5.7.3)
       '@trpc/server':
         specifier: 'catalog:'
         version: 11.0.0-rc.802(typescript@5.7.3)
-      '@types/pg':
-        specifier: 'catalog:'
-        version: 8.11.11
       superjson:
         specifier: 'catalog:'
         version: 2.2.2
@@ -398,7 +395,7 @@ importers:
         version: 9.21.0(jiti@2.4.2)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.1
+        version: 3.5.2
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
@@ -414,9 +411,6 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../db
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       better-auth:
         specifier: 'catalog:'
         version: 1.1.19
@@ -442,9 +436,6 @@ importers:
 
   packages/db:
     dependencies:
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       drizzle-orm:
         specifier: 'catalog:'
         version: 0.39.3(@types/pg@8.11.11)(kysely@0.27.5)(pg@8.13.3)
@@ -482,40 +473,12 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.21.0(jiti@2.4.2)
+      shx:
+        specifier: ^0.3.4
+        version: 0.3.4
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
-
-  packages/env:
-    dependencies:
-      '@t3-oss/env-core':
-        specifier: 'catalog:'
-        version: 0.12.0(typescript@5.7.3)(valibot@1.0.0-rc.1(typescript@5.7.3))(zod@3.24.2)
-      valibot:
-        specifier: 'catalog:'
-        version: 1.0.0-rc.1(typescript@5.7.3)
-    devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../../tools/eslint
-      '@repo/prettier-config':
-        specifier: workspace:*
-        version: link:../../tools/prettier
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../tools/typescript
-      '@types/node':
-        specifier: 'catalog:'
-        version: 22.13.5
-      eslint:
-        specifier: 'catalog:'
-        version: 9.21.0(jiti@2.4.2)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.7.3
-      vite:
-        specifier: 'catalog:'
-        version: 6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3)
 
   packages/ui:
     dependencies:
@@ -576,7 +539,7 @@ importers:
         version: 9.21.0(jiti@2.4.2)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.1
+        version: 3.5.2
       react:
         specifier: 'catalog:'
         version: 19.0.0
@@ -585,6 +548,10 @@ importers:
         version: 5.7.3
 
   tools/eslint:
+    dependencies:
+      eslint-config-turbo:
+        specifier: ^2.4.2
+        version: 2.4.2(eslint@9.21.0(jiti@2.4.2))(turbo@2.4.2)
     devDependencies:
       '@eslint/js':
         specifier: 'catalog:'
@@ -633,7 +600,7 @@ importers:
     dependencies:
       prettier:
         specifier: 'catalog:'
-        version: 3.5.1
+        version: 3.5.2
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -1952,20 +1919,6 @@ packages:
   '@swc/types@0.1.17':
     resolution: {integrity: sha512-V5gRru+aD8YVyCOMAjMpWR1Ui577DD5KSJsHP8RAxopAH22jFz6GZd/qxqjO6MJHQhcsjvjOFXyDhyLQUnMveQ==}
 
-  '@t3-oss/env-core@0.12.0':
-    resolution: {integrity: sha512-lOPj8d9nJJTt81mMuN9GMk8x5veOt7q9m11OSnCBJhwp1QrL/qR+M8Y467ULBSm9SunosryWNbmQQbgoiMgcdw==}
-    peerDependencies:
-      typescript: '>=5.0.0'
-      valibot: ^1.0.0-beta.7 || ^1.0.0
-      zod: ^3.24.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-      valibot:
-        optional: true
-      zod:
-        optional: true
-
   '@tailwindcss/node@4.0.7':
     resolution: {integrity: sha512-dkFXufkbRB2mu3FPsW5xLAUWJyexpJA+/VtQj18k3SUiJVLdpgzBd1v1gRRcIpEJj7K5KpxBKfOXlZxT3ZZRuA==}
 
@@ -2732,6 +2685,12 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
+  eslint-config-turbo@2.4.2:
+    resolution: {integrity: sha512-yPiW5grffSWETp/3bVPUXWQkHfiLoOBb3wuBbM90HlKkLOhggySn9C6/yUccprqRguMgR5OzXIuzDuUnX6bulw==}
+    peerDependencies:
+      eslint: '>6.6.0'
+      turbo: '>2.0.0'
+
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
 
@@ -2885,6 +2844,9 @@ packages:
     resolution: {integrity: sha512-Ld2g8rrAyMYFXBhEqMz8ZAHBi4J4uS1i/CxGMDnjyFWddMXLVcDp051DZfu+t7+ab7Wv6SMqpWmyFIj5UbfFvg==}
     engines: {node: '>=14'}
 
+  fs.realpath@1.0.0:
+    resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -2934,6 +2896,10 @@ packages:
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
     hasBin: true
+
+  glob@7.2.3:
+    resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   globals@11.12.0:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
@@ -3009,12 +2975,20 @@ packages:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
 
+  inflight@1.0.6:
+    resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
   internal-slot@1.1.0:
     resolution: {integrity: sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==}
     engines: {node: '>= 0.4'}
+
+  interpret@1.4.0:
+    resolution: {integrity: sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==}
+    engines: {node: '>= 0.10'}
 
   is-arguments@1.2.0:
     resolution: {integrity: sha512-7bVbi0huj/wrIAOzb8U1aszg9kdi3KN/CyU19CTI7tAoZYEZoL9yCDXpbXN+uPsuWnP02cyug1gleqq+TU+YCA==}
@@ -3391,6 +3365,9 @@ packages:
   obuf@1.1.2:
     resolution: {integrity: sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==}
 
+  once@1.4.0:
+    resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
+
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
     engines: {node: '>= 0.8.0'}
@@ -3417,6 +3394,10 @@ packages:
   path-exists@4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
     engines: {node: '>=8'}
+
+  path-is-absolute@1.0.1:
+    resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
+    engines: {node: '>=0.10.0'}
 
   path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
@@ -3559,8 +3540,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.5.1:
-    resolution: {integrity: sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==}
+  prettier@3.5.2:
+    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3643,6 +3624,10 @@ packages:
   readdirp@4.1.2:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
+
+  rechoir@0.6.2:
+    resolution: {integrity: sha512-HFM8rkZ+i3zrV+4LQjwQ0W+ez98pApMGM3HUrN04j3CqzPOzl9nmP15Y8YXNm8QHGv/eacOVEjqhmWpkRV0NAw==}
+    engines: {node: '>= 0.10'}
 
   reflect.getprototypeof@1.0.10:
     resolution: {integrity: sha512-00o4I+DVrefhv+nX0ulyi3biSHCPDe+yLv5o/p6d/UVlirijB8E16FtfwSAi4g3tcqrQ4lRAqQSoFEZJehYEcw==}
@@ -3733,6 +3718,16 @@ packages:
   shebang-regex@3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
+
+  shelljs@0.8.5:
+    resolution: {integrity: sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==}
+    engines: {node: '>=4'}
+    hasBin: true
+
+  shx@0.3.4:
+    resolution: {integrity: sha512-N6A9MLVqjxZYcVn8hLmtneQWIJtp8IKzMP4eMnx+nqkvXoqinUPCbUFLp2UcWTEIUONhlk0ewxr/jaVGlc+J+g==}
+    engines: {node: '>=6'}
+    hasBin: true
 
   side-channel-list@1.0.0:
     resolution: {integrity: sha512-FCLHtRD/gnpCiCHEiJLOwdmFP+wzCmDEkc9y7NsYxeF4u7Btsn1ZuwgwJGxImImHicJArLP4R0yX4c2KCrMrTA==}
@@ -4158,6 +4153,9 @@ packages:
   wrap-ansi@8.1.0:
     resolution: {integrity: sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==}
     engines: {node: '>=12'}
+
+  wrappy@1.0.2:
+    resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
   xtend@4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
@@ -5440,12 +5438,6 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@t3-oss/env-core@0.12.0(typescript@5.7.3)(valibot@1.0.0-rc.1(typescript@5.7.3))(zod@3.24.2)':
-    optionalDependencies:
-      typescript: 5.7.3
-      valibot: 1.0.0-rc.1(typescript@5.7.3)
-      zod: 3.24.2
-
   '@tailwindcss/node@4.0.7':
     dependencies:
       enhanced-resolve: 5.18.1
@@ -5567,7 +5559,7 @@ snapshots:
   '@tanstack/router-generator@1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
       '@tanstack/virtual-file-routes': 1.99.0
-      prettier: 3.5.1
+      prettier: 3.5.2
       tsx: 4.19.3
       zod: 3.24.2
     optionalDependencies:
@@ -6273,6 +6265,12 @@ snapshots:
     dependencies:
       eslint: 9.21.0(jiti@2.4.2)
 
+  eslint-config-turbo@2.4.2(eslint@9.21.0(jiti@2.4.2))(turbo@2.4.2):
+    dependencies:
+      eslint: 9.21.0(jiti@2.4.2)
+      eslint-plugin-turbo: 2.4.2(eslint@9.21.0(jiti@2.4.2))(turbo@2.4.2)
+      turbo: 2.4.2
+
   eslint-import-resolver-node@0.3.9:
     dependencies:
       debug: 3.2.7
@@ -6475,6 +6473,8 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
+  fs.realpath@1.0.0: {}
+
   fsevents@2.3.3:
     optional: true
 
@@ -6540,6 +6540,15 @@ snapshots:
       package-json-from-dist: 1.0.1
       path-scurry: 1.11.1
 
+  glob@7.2.3:
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 3.1.2
+      once: 1.4.0
+      path-is-absolute: 1.0.1
+
   globals@11.12.0: {}
 
   globals@14.0.0: {}
@@ -6594,6 +6603,11 @@ snapshots:
 
   imurmurhash@0.1.4: {}
 
+  inflight@1.0.6:
+    dependencies:
+      once: 1.4.0
+      wrappy: 1.0.2
+
   inherits@2.0.4: {}
 
   internal-slot@1.1.0:
@@ -6601,6 +6615,8 @@ snapshots:
       es-errors: 1.3.0
       hasown: 2.0.2
       side-channel: 1.1.0
+
+  interpret@1.4.0: {}
 
   is-arguments@1.2.0:
     dependencies:
@@ -6943,6 +6959,10 @@ snapshots:
 
   obuf@1.1.2: {}
 
+  once@1.4.0:
+    dependencies:
+      wrappy: 1.0.2
+
   optionator@0.9.4:
     dependencies:
       deep-is: 0.1.4
@@ -6973,6 +6993,8 @@ snapshots:
       callsites: 3.1.0
 
   path-exists@4.0.0: {}
+
+  path-is-absolute@1.0.1: {}
 
   path-key@3.1.1: {}
 
@@ -7084,7 +7106,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.5.1: {}
+  prettier@3.5.2: {}
 
   prop-types@15.8.1:
     dependencies:
@@ -7201,6 +7223,10 @@ snapshots:
       picomatch: 2.3.1
 
   readdirp@4.1.2: {}
+
+  rechoir@0.6.2:
+    dependencies:
+      resolve: 1.22.10
 
   reflect.getprototypeof@1.0.10:
     dependencies:
@@ -7327,6 +7353,17 @@ snapshots:
       shebang-regex: 3.0.0
 
   shebang-regex@3.0.0: {}
+
+  shelljs@0.8.5:
+    dependencies:
+      glob: 7.2.3
+      interpret: 1.4.0
+      rechoir: 0.6.2
+
+  shx@0.3.4:
+    dependencies:
+      minimist: 1.2.8
+      shelljs: 0.8.5
 
   side-channel-list@1.0.0:
     dependencies:
@@ -7787,6 +7824,8 @@ snapshots:
       ansi-styles: 6.2.1
       string-width: 5.1.2
       strip-ansi: 7.1.0
+
+  wrappy@1.0.2: {}
 
   xtend@4.0.2: {}
 
