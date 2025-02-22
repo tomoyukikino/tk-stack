@@ -3,14 +3,15 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "pnpm with-env tsx watch src/index.ts",
+    "env:run": "dotenv --",
+    "env:copy-example": "shx -- cp -n .env.example .env",
+    "env:remove": "shx -- rm -f .env",
+    "dev": "pnpm env:run tsx watch src/index.ts",
     "build": "tsup",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
-    "with-env": "dotenv --",
-    "copy-example-dotenv": "shx -- cp -n .env.example .env"
+    "typecheck": "tsc --noEmit"
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {

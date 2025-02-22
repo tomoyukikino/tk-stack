@@ -39,7 +39,10 @@
       "cache": false,
       "interactive": true
     },
-    "copy-example-dotenv": {
+    "env:copy-example": {
+      "cache": false
+    },
+    "env:remove": {
       "cache": false
     }
   },

@@ -309,7 +309,11 @@ app/package, which can be run with:
 
 ```bash
 # NOTE: This will not overwrite existing local .env files
-pnpm copy-example-dotenv
+pnpm env:copy-example
+
+# To reset any modifications to your .env and restore the examples, run:
+pnpm env:remove
+pnpm env:copy-example
 ```
 
 It is recommended that any new apps that uses environment variables follow the
