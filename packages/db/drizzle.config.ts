@@ -7,8 +7,6 @@ const envSchema = v.object({
 
 const env = v.parse(envSchema, process.env);
 
-console.log(env);
-
 // Supabase pooling URL uses 6543, which we don't need for migrations
 const nonPoolingUrl = env.DB_POSTGRES_URL.replace(':6543', ':5432');
 
