@@ -16,7 +16,7 @@ const wildcardPath = {
 
 const db = createDatabaseClient({ databaseUrl: env.DATABASE_URL });
 const auth = createAuth({ db, webUrl: env.PUBLIC_WEB_URL });
-const { trpcRouter, createContext } = createAPI({ auth, db });
+const api = createAPI({ auth, db });
 
 const app = new Hono<{
   Variables: {
@@ -61,8 +61,8 @@ app.on(['POST', 'GET'], wildcardPath.BETTER_AUTH, (c) =>
 app.use(
   wildcardPath.TRPC,
   trpcServer({
-    router: trpcRouter,
-    createContext: (c) => createContext({ headers: c.req.headers }),
+    router: api.trpcRouter,
+    createContext: (c) => api.createTRPCContext({ headers: c.req.headers }),
   }),
 );
 
