@@ -23,7 +23,6 @@
     "@repo/env": "workspace:*",
     "@trpc/client": "catalog:",
     "@trpc/server": "catalog:",
-    "@types/pg": "catalog:",
     "superjson": "catalog:",
     "url-join": "catalog:",
     "valibot": "catalog:"

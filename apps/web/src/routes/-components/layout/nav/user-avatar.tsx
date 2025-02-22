@@ -1,5 +1,4 @@
 import { ExitIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import { authClient } from '@repo/auth/client';
 import {
   Avatar,
   AvatarFallback,
@@ -12,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@repo/ui/components/dropdown-menu';
 import { useTheme } from 'next-themes';
+import { authClient } from '@/clients/authClient';
 
 export default function UserAvatar({
   user,

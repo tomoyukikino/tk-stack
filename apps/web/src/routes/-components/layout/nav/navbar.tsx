@@ -1,5 +1,5 @@
-import { authClient } from '@repo/auth/client';
 import { Link } from '@tanstack/react-router';
+import { authClient } from '@/clients/authClient';
 import UserAvatar from '@/routes/-components/layout/nav/user-avatar';
 import { postsLinkOptions } from '@/validations/posts-link-options';
 

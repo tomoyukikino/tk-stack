@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "format": "prettier --check .  --ignore-path .prettierignore --ignore-path ../../.gitignore",
     "clean": "git clean -xdf .cache dist .turbo node_modules",
