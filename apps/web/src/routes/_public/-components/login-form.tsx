@@ -120,7 +120,7 @@ export default function LoginCredentialsForm() {
         selector={(state) => [state.canSubmit, state.isSubmitting]}
         children={([canSubmit, isSubmitting]) => (
           <Button type="submit" disabled={!canSubmit} className="h-12 mt-3">
-            {isSubmitting ? '...' : 'Submit'}
+            {isSubmitting ? '...' : 'Log in'}
           </Button>
         )}
       />
