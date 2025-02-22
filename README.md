@@ -4,6 +4,26 @@ A modern [turborepo](https://turbo.build/repo/docs) template for building
 fullstack projects with modular components, shared configs, containerised
 deployments and 100% type-safety.
 
+- [About](#about)
+  - [Stack overview](#stack-overview)
+  - [Base Functionalities](#base-functionalities)
+  - [Inspirations & Goals](#inspirations--goals)
+- [Quick Start](#quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+- [Developing](#developing)
+  - [Working with a single package](#working-with-a-single-package)
+  - [Adding new shadcn components](#adding-new-shadcn-components)
+  - [Tooling Scripts](#tooling-scripts)
+- [Containerisation (Docker/Podman)](#containerisation-dockerpodman)
+- [Deployment](#deployment)
+  - [Using Containers](#using-containers)
+  - [Using Major Platforms](#using-major-platforms)
+- [Other Notes](#other-notes)
+  - [Tanstack Router Layout](#tanstack-router-layout)
+  - [Server API](#server-api)
+  - [Environment Variables](#environment-variables)
+
 ## About
 
 ### Stack overview
@@ -164,7 +184,7 @@ pnpm ui-add
 - use `<Space>` to toggle select your desired component(s)
 - hit `<Enter>` to install all selected components
 
-### Tooling Scripts:
+### Tooling Scripts
 
 All scripts are defined in [package.json](package.json) and
 [turbo.json](turbo.json):
