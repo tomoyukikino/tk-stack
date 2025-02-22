@@ -82,7 +82,7 @@ export default function RegisterCredentialsForm() {
           name="name"
           children={(field) => (
             <>
-              <Label htmlFor={field.name}>Name</Label>
+              <Label htmlFor={field.name}>Full Name</Label>
               <Input
                 className="mt-1"
                 id={field.name}
