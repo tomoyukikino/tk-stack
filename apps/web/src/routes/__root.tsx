@@ -1,7 +1,10 @@
 import { Toaster } from '@repo/ui/components/sonner';
 import { Outlet, createRootRoute } from '@tanstack/react-router';
 import React from 'react';
+import { authClient } from '@/clients/authClient';
+import NavContainer from '@/routes/-components/layout/nav/nav-container';
 import { Navbar } from '@/routes/-components/layout/nav/navbar';
+import Spinner from '@/routes/-components/layout/spinner';
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -17,9 +20,21 @@ const TanStackRouterDevtools = import.meta.env.PROD
     );
 
 function RootComponent() {
+  const { data: session, isPending } = authClient.useSession();
+
+  if (isPending) {
+    return (
+      <>
+        <NavContainer>
+          <Spinner />
+        </NavContainer>
+      </>
+    );
+  }
+
   return (
     <>
-      <Navbar />
+      <Navbar session={session} />
       <Toaster
         toastOptions={{
           classNames: {

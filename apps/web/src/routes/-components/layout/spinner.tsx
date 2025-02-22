@@ -1,8 +1,9 @@
 import { GearIcon } from '@radix-ui/react-icons';
+import { cn } from '@repo/ui/lib/utils';
 
-function Spinner() {
+function Spinner({ className }: { className?: string }) {
   return (
-    <div className="inline-block animate-spin duration-500">
+    <div className={cn('inline-block animate-spin duration-500', className)}>
       <GearIcon />
     </div>
   );

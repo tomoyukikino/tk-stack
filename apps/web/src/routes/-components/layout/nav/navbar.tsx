@@ -1,15 +1,14 @@
 import { Link } from '@tanstack/react-router';
-import { authClient } from '@/clients/authClient';
+import type { AuthSession } from '@/clients/authClient';
+import NavContainer from '@/routes/-components/layout/nav/nav-container';
 import UserAvatar from '@/routes/-components/layout/nav/user-avatar';
 import { postsLinkOptions } from '@/validations/posts-link-options';
 
 const activeClassName = 'underline decoration-2 opacity-70';
 
-export function Navbar() {
-  const { data: session, isPending } = authClient.useSession();
-
+export function Navbar({ session }: { session: AuthSession }) {
   return (
-    <div className="px-2 md:px-4 flex items-center justify-between text-lg bg-nav h-12">
+    <NavContainer>
       <div className="flex gap-x-4">
         <Link
           to="/"
@@ -27,7 +26,7 @@ export function Navbar() {
           </Link>
         ) : null}
       </div>
-      {isPending ? null : session?.user ? (
+      {session?.user ? (
         <UserAvatar user={session.user} />
       ) : (
         <div className="flex gap-x-2 justify-between">
@@ -48,6 +47,6 @@ export function Navbar() {
           </Link>
         </div>
       )}
-    </div>
+    </NavContainer>
   );
 }
