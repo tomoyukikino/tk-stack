@@ -1,12 +1,11 @@
-import { trpcClient } from '@repo/api/client';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { createRouter as createTanstackRouter } from '@tanstack/react-router';
 import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query';
 import type { AppRouter } from '@repo/api/server';
+import { queryClient } from '@/clients/queryClient';
+import { trpcClient } from '@/clients/trpcClient';
 import { routeTree } from '@/routeTree.gen';
 import Spinner from '@/routes/-components/layout/spinner';
-
-export const queryClient = new QueryClient();
 
 export const trpc = createTRPCOptionsProxy<AppRouter>({
   client: trpcClient,
