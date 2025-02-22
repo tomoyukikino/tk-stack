@@ -18,9 +18,9 @@
     }
   },
   "scripts": {
-    "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsc",
+    "build": "tsc --build",
+    "dev": "tsc --build",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "env:run": "dotenv --",
