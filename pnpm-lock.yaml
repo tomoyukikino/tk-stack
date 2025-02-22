@@ -222,9 +222,6 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../../packages/env
       hono:
         specifier: 'catalog:'
         version: 4.7.2
@@ -268,9 +265,6 @@ importers:
       '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../../packages/env
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui

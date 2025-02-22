@@ -1,10 +1,16 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createValidatedEnv, CLIENT_ENV_PREFIX } from '@repo/env/create';
 import tailwindcss from '@tailwindcss/vite';
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react-swc';
+import * as v from 'valibot';
 import { defineConfig } from 'vite';
+
+const envSchema = v.object({
+  PUBLIC_WEB_URL: v.pipe(v.string(), v.url()),
+});
+
+const env = v.parse(envSchema, process.env);
 
 /**
  * Fixes issue with "__dirname is not defined in ES module scope"
@@ -17,9 +23,14 @@ import { defineConfig } from 'vite';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const env = createValidatedEnv(process.env);
+/**
+ * Since vite is only used during development, we can assume the structure
+ * will resemble a URL such as: http://localhost:3035
+ */
+const webUrl = new URL(env.PUBLIC_WEB_URL);
+const WEB_HOST = webUrl.hostname;
+const WEB_PORT = parseInt(webUrl.port, 10);
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     TanStackRouterVite({
@@ -28,10 +39,10 @@ export default defineConfig({
     tailwindcss(),
     react(),
   ],
-  envPrefix: CLIENT_ENV_PREFIX,
+  envPrefix: 'PUBLIC_',
   server: {
-    port: env.WEB_PORT,
-    host: env.WEB_HOST,
+    host: WEB_HOST,
+    port: WEB_PORT,
     strictPort: true,
   },
   resolve: {
