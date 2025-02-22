@@ -26,11 +26,11 @@ app.use(
   wildcardPath.BETTER_AUTH,
   cors({
     origin: [env.PUBLIC_WEB_URL],
+    credentials: true,
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
     exposeHeaders: ['Content-Length'],
     maxAge: 600,
-    credentials: true,
   }),
 );
 
