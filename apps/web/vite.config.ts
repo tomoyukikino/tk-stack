@@ -29,8 +29,8 @@ const envSchema = v.object({
 });
 const env = v.parse(envSchema, process.env);
 const webUrl = new URL(env.PUBLIC_WEB_URL);
-const WEB_HOST = webUrl.hostname;
-const WEB_PORT = parseInt(webUrl.port, 10);
+const host = webUrl.hostname;
+const port = parseInt(webUrl.port, 10);
 
 export default defineConfig({
   plugins: [
@@ -42,8 +42,8 @@ export default defineConfig({
   ],
   envPrefix: 'PUBLIC_',
   server: {
-    host: WEB_HOST,
-    port: WEB_PORT,
+    host,
+    port,
     strictPort: true,
   },
   resolve: {
