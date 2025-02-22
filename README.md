@@ -55,6 +55,7 @@ there is a preference for:
 - [better auth](https://www.better-auth.com) for authentication instead [auth.js (next auth)](https://authjs.dev)
 - [valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
 - [tanstack form](https://tanstack.com/form/latest) instead of [react-hook-form](https://react-hook-form.com)
+- using `.env` in each application/package instead of globally, as per [turborepo's recommendations](https://turbo.build/repo/docs/crafting-your-repository/using-environment-variables#best-practices)
 
 Additionally, the aim of this project is to always adopting the latest releases
 of dependencies and tools. For example:
