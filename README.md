@@ -214,7 +214,7 @@ details, see
 - [apps/web/Dockerfile](apps/web/Dockerfile)
 - [apps/web/nginx.conf](apps/web/nginx.conf)
 
-## Caveats
+## Other Notes
 
 ### Tanstack Router Layout
 
@@ -235,3 +235,37 @@ You can read more about this
 There is an artificial delay added in development mode to simulate API usage in
 real-world environments. You can disable this by removing the `timingMiddleware`
 in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
+
+### Environment Variables
+
+This template was made to follow the the recommendation of
+
+- @tyleralbee in [this turborepo's GitHub discussion](https://github.com/vercel/turborepo/discussions/9458#discussioncomment-11443969)
+- @cjkihl in [create-t3-turbo issue #397](https://github.com/t3-oss/create-t3-turbo/issues/397#issuecomment-1630028405)
+- turborepo official docs on [environment variables best practices](https://turbo.build/repo/docs/crafting-your-repository/using-environment-variables#best-practices)
+
+In using this template, it is recommended that
+
+1. each application has a local `.env` file instead of a global `.env` at the
+   root of your repository
+1. packages should be pure, i.e. rely on factory methods and receiving inputs to
+   instantiate rather than consuming environment variables directly
+   - one exception is the `@repo/db` package, which requires the `DB_POSTGRES_URL` variable for schema migration with `pnpm db:push`
+1. environent variables are prefixed, e.g. `SERVER_AUTH_SECRET` instead of
+   `AUTH_SECRET`. Caching in the app's `turbo.json` can then be configured to use wildcards such as:
+   ```json
+   "tasks": {
+      "build": {
+        "env": ["SERVER_*"],
+      }
+    }
+   ```
+
+There is also a script that creates a `.env` from `.env.example` of each app/package, which can be run with:
+
+```bash
+# NOTE: This will not overwrite existing local .env files
+pnpm copy-example-dotenv
+```
+
+It is recommended that any new apps that uses environment variables follow the example script set in [apps/server/package.json](apps/server/package.json).
