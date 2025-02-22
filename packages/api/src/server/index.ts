@@ -1,16 +1,23 @@
 import type { AuthInstance } from '@repo/auth/server';
+import type { DatabaseInstance } from '@repo/db/client';
 import postRouter from './router/post';
 import { createTRPCContext, router } from './trpc';
 
 export { createTRPCContext };
 
-export const createAPI = (auth: AuthInstance) => {
+export const createAPI = ({
+  auth,
+  db,
+}: {
+  auth: AuthInstance;
+  db: DatabaseInstance;
+}) => {
   return {
     trpcRouter: router({
       posts: postRouter,
     }),
     createContext: ({ headers }: { headers: Headers }) =>
-      createTRPCContext({ auth, headers }),
+      createTRPCContext({ auth, db, headers }),
   };
 };
 

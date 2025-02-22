@@ -1,21 +1,26 @@
-import { db } from '@repo/db/client';
 import { initTRPC, TRPCError } from '@trpc/server';
 import SuperJSON from 'superjson';
 import type { AuthInstance } from '@repo/auth/server';
+import type { DatabaseInstance } from '@repo/db/client';
 
 export const createTRPCContext = async ({
   auth,
+  db,
   headers,
 }: {
   auth: AuthInstance;
+  db: DatabaseInstance;
   headers: Headers;
-}) => {
+}): Promise<{
+  db: DatabaseInstance;
+  session: AuthInstance['$Infer']['Session'] | null;
+}> => {
   const session = await auth.api.getSession({
     headers,
   });
   return {
-    session,
     db,
+    session,
   };
 };
 

@@ -2,6 +2,7 @@ import { serve } from '@hono/node-server';
 import { trpcServer } from '@hono/trpc-server';
 import { createAPI } from '@repo/api/server';
 import { createAuth } from '@repo/auth/server';
+import { createDatabaseClient } from '@repo/db/client';
 import { env } from '@repo/env';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
@@ -13,8 +14,9 @@ const wildcardPath = {
   TRPC: '/trpc/*',
 } as const;
 
-const auth = createAuth({ webUrl: env.PUBLIC_WEB_URL });
-const { trpcRouter, createContext } = createAPI(auth);
+const db = createDatabaseClient({ databaseUrl: env.DATABASE_URL });
+const auth = createAuth({ db, webUrl: env.PUBLIC_WEB_URL });
+const { trpcRouter, createContext } = createAPI({ auth, db });
 
 const app = new Hono<{
   Variables: {
