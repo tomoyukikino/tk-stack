@@ -25,8 +25,8 @@ RUN turbo prune web --docker
 
 FROM base AS installer
 
-ARG PUBLIC_API_URL
-ENV PUBLIC_API_URL=${PUBLIC_API_URL}
+ARG PUBLIC_SERVER_URL
+ENV PUBLIC_SERVER_URL=${PUBLIC_SERVER_URL}
 
 COPY --from=builder /app/out/json/ .
 RUN pnpm install --frozen-lockfile

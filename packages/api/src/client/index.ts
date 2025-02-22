@@ -4,14 +4,14 @@ import urlJoin from 'url-join';
 import type { AppRouter } from '../server';
 
 export interface APIClientOptions {
-  apiUrl: string;
+  serverUrl: string;
 }
 
-export const createTrpcClient = ({ apiUrl }: APIClientOptions) => {
+export const createTrpcClient = ({ serverUrl }: APIClientOptions) => {
   return createTRPCClient<AppRouter>({
     links: [
       httpBatchLink({
-        url: urlJoin(apiUrl, 'trpc'),
+        url: urlJoin(serverUrl, 'trpc'),
         transformer: SuperJSON,
         fetch(url, options) {
           return fetch(url, {
