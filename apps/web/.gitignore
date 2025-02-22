@@ -1,19 +1,8 @@
-# Local
+.cache/
+.turbo/
 .DS_Store
-*.local
-*.log
 
-# Dist
-node_modules
+.env*
+
 dist/
-.vinxi
-.output
-.vercel
-.netlify
-.wrangler
-
-# IDE
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
-.idea
+node_modules/
