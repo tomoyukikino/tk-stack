@@ -1,7 +1,8 @@
 # RT Stack
 
 A modern [turborepo](https://turbo.build/repo/docs) template for building
-fullstack projects with modular components, shared configs, containerised deployments and 100% type-safety.
+fullstack projects with modular components, shared configs, containerised
+deployments and 100% type-safety.
 
 ## About
 
@@ -99,7 +100,15 @@ docker compose up db --detach
 pnpm db:push
 ```
 
-If you use an external postgres database, modify the `DATABASE_URL` variable in your `.env` file accordingly.
+If you use an external postgres database, you will need to modify the following
+environment variables:
+
+1. `SERVER_POSTGRES_URL` in the file `apps/server/.env`
+
+   - used at runtime by the backend server
+
+1. `DB_POSTGRES_URL` in the file `packages/db/.env`
+   - used in database schema migrations with `pnpm db:push`
 
 You can then start all applications with
 
