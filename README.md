@@ -126,7 +126,8 @@ By default the following URLs will be accesibile:
 
 ### Working with a single package
 
-Use [`pnpm --filter=<name>`](https://pnpm.io/filtering) (where `<name>` is defined in the `package.json` of each package).
+Use [`pnpm --filter=<name>`](https://pnpm.io/filtering) (where `<name>` is
+defined in the `package.json` of each package).
 
 Example usage:
 
@@ -214,11 +215,51 @@ details, see
 - [apps/web/Dockerfile](apps/web/Dockerfile)
 - [apps/web/nginx.conf](apps/web/nginx.conf)
 
+## Deployment
+
+### Using Containers
+
+You can deploy applications to any services that supports docker deployment.
+
+Using docker compose (see [compose.yaml](compose.yaml)) is also an option,
+although this alone may not be production-ready at scale. However, it can be
+paired with
+
+- reverse proxies and load balancers offered by tools like
+  [Traefik](https://github.com/traefik/traefik) or
+  [Caddy](https://github.com/caddyserver/caddy)
+- container orchestration platforms like [Docker Swarm](https://docs.docker.com/engine/swarm) and [Kubernetes](https://kubernetes.io)
+
+Personally, I recommend deploying on a Virtual Private Server that has one of
+these Self-hostable PaaS installed, which automatically handles the complexity
+of deployment for you:
+
+- Coolify
+  - https://github.com/coollabsio/coolify
+  - https://www.coolify.io
+- Dokploy
+  - https://github.com/Dokploy/dokploy
+  - http://dokploy.com
+
+### Using Major Platforms
+
+The **web** application is a simple React static site powered by Vite, which is
+easily deployed to platforms such as GitHub/GitLab pages, Vercel and Netlify.
+You can refer to the [vite documentation](https://vite.dev/guide/static-deploy)
+for deployment guides on all major platforms.
+
+The **server** application uses the [hono](https://hono.dev) web framework with
+the [NodeJS runtime](https://hono.dev/docs/getting-started/nodejs). However,
+this can be exchanged with other runtimes before deploying to your chosen
+platforms. For example, deploying to Netlify is covered within
+[Hono's documentations](https://hono.dev/docs/getting-started/netlify#_4-deploy).
+
 ## Other Notes
 
 ### Tanstack Router Layout
 
-The following is configured in [vite.config.ts](apps/web/vite.config.ts) web application:
+The following is configured in [vite.config.ts](apps/web/vite.config.ts) web
+application:
 
 ```ts
 TanStackRouterVite({
@@ -250,9 +291,11 @@ In using this template, it is recommended that
    root of your repository
 1. packages should be pure, i.e. rely on factory methods and receiving inputs to
    instantiate rather than consuming environment variables directly
-   - one exception is the `@repo/db` package, which requires the `DB_POSTGRES_URL` variable for schema migration with `pnpm db:push`
+   - one exception is the `@repo/db` package, which requires the
+     `DB_POSTGRES_URL` variable for schema migration with `pnpm db:push`
 1. environent variables are prefixed, e.g. `SERVER_AUTH_SECRET` instead of
-   `AUTH_SECRET`. Caching in the app's `turbo.json` can then be configured to use wildcards such as:
+   `AUTH_SECRET`. Caching in the app's `turbo.json` can then be configured to
+   use wildcards such as:
    ```json
    "tasks": {
       "build": {
@@ -261,11 +304,13 @@ In using this template, it is recommended that
     }
    ```
 
-There is also a script that creates a `.env` from `.env.example` of each app/package, which can be run with:
+There is also a script that creates a `.env` from `.env.example` of each
+app/package, which can be run with:
 
 ```bash
 # NOTE: This will not overwrite existing local .env files
 pnpm copy-example-dotenv
 ```
 
-It is recommended that any new apps that uses environment variables follow the example script set in [apps/server/package.json](apps/server/package.json).
+It is recommended that any new apps that uses environment variables follow the
+example script set in [apps/server/package.json](apps/server/package.json).
