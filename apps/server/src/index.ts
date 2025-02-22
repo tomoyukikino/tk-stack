@@ -3,10 +3,10 @@ import { trpcServer } from '@hono/trpc-server';
 import { createAPI } from '@repo/api/server';
 import { createAuth } from '@repo/auth/server';
 import { createDatabaseClient } from '@repo/db/client';
-import { env } from '@repo/env';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
+import { env } from './env';
 
 const wildcardPath = {
   ALL: '*',

@@ -9,7 +9,7 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "with-env": "dotenv -e ../../.env --"
+    "with-env": "dotenv -e ./.env --"
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
@@ -18,8 +18,8 @@
     "@repo/api": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
-    "@repo/env": "workspace:*",
-    "hono": "catalog:"
+    "hono": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
