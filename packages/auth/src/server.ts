@@ -21,6 +21,12 @@ export const createAuth = ({
     database: drizzleAdapter(db, {
       provider: 'pg',
     }),
+    session: {
+      cookieCache: {
+        enabled: true,
+        maxAge: 5 * 60,
+      },
+    },
     emailAndPassword: {
       enabled: true,
       autoSignIn: true,
