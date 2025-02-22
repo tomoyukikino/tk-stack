@@ -1,8 +1,0 @@
-{
-  "extends": "@repo/typescript-config/internal-package.json",
-  "compilerOptions": {
-    "types": ["node", "vite"]
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
-}

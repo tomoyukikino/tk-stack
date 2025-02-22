@@ -24,8 +24,6 @@ packages
   |   └─ better auth
   ├─ db
   |   └─ drizzle orm (postgresql database)
-  ├─ env
-  |   └─ @t3-oss/env-core (shared, validated env)
   ├─ ui
   |   ├─ tailwindcss
   |   └─ shadcn & radix ui

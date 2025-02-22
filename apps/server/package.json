@@ -9,7 +9,7 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "with-env": "dotenv -e ./.env --"
+    "with-env": "dotenv --"
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
