@@ -9,7 +9,8 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "with-env": "dotenv --"
+    "with-env": "dotenv --",
+    "copy-example-dotenv": "shx -- cp -n .env.example .env"
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
@@ -28,6 +29,7 @@
     "@types/node": "catalog:",
     "dotenv-cli": "catalog:",
     "eslint": "catalog:",
+    "shx": "^0.3.4",
     "tsup": "^8.3.6",
     "tsx": "catalog:",
     "typescript": "catalog:"

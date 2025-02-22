@@ -13,7 +13,8 @@
     "dev": "pnpm env-vite-runner dev",
     "build": "pnpm env-vite-runner build",
     "preview": "pnpm env-vite-runner preview",
-    "start": "pnpm env-vite-runner"
+    "start": "pnpm env-vite-runner",
+    "copy-example-dotenv": "shx -- cp -n .env.example .env"
   },
   "dependencies": {
     "@radix-ui/react-icons": "catalog:",
@@ -48,6 +49,7 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react-swc": "catalog:",
     "eslint": "catalog:",
+    "shx": "^0.3.4",
     "typescript": "catalog:",
     "vite": "catalog:"
   }
