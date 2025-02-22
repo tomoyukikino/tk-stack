@@ -48,6 +48,6 @@ COPY --from=installer --chown=hono:nodejs /app/apps/server/dist /app/dist
 USER hono
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-  CMD wget --quiet --spider http://${API_HOST}:${API_PORT}/healthcheck || exit 1
+  CMD wget --quiet --spider http://${SERVER_HOST}:${SERVER_PORT}/healthcheck || exit 1
 
 CMD ["node", "/app/dist/index.js"]

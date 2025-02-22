@@ -14,8 +14,12 @@ const wildcardPath = {
   TRPC: '/trpc/*',
 } as const;
 
-const db = createDatabaseClient({ databaseUrl: env.DATABASE_URL });
-const auth = createAuth({ db, webUrl: env.PUBLIC_WEB_URL });
+const db = createDatabaseClient({ databaseUrl: env.SERVER_POSTGRES_URL });
+const auth = createAuth({
+  authSecret: env.SERVER_AUTH_SECRET,
+  db,
+  webUrl: env.PUBLIC_WEB_URL,
+});
 const api = createAPI({ auth, db });
 
 const app = new Hono<{
@@ -77,8 +81,8 @@ app.get('/healthcheck', (c) => {
 serve(
   {
     fetch: app.fetch,
-    port: env.API_PORT,
-    hostname: env.API_HOST,
+    port: env.SERVER_PORT,
+    hostname: env.SERVER_HOST,
   },
   (info) => {
     const host = info.family === 'IPv6' ? `[${info.address}]` : info.address;

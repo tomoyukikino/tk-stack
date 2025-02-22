@@ -26,10 +26,10 @@ services:
     ports:
       - 3035:3000
     environment:
-      - AUTH_SECRET=please_change_this_in_production
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
-      - API_HOST=0.0.0.0
-      - API_PORT=3000
+      - SERVER_AUTH_SECRET=please_change_this_in_production
+      - SERVER_POSTGRES_URL=postgres://postgres:postgres@db:5432/postgres
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=3000
       - PUBLIC_WEB_URL=http://localhost:8085
     healthcheck:
       interval: 30s
@@ -38,7 +38,7 @@ services:
       test:
         [
           'CMD-SHELL',
-          'wget --quiet --spider http://$$API_HOST:$$API_PORT/healthcheck',
+          'wget --quiet --spider http://$$SERVER_HOST:$$SERVER_PORT/healthcheck',
         ]
     depends_on:
       - db

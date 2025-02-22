@@ -4,13 +4,19 @@ import type { DatabaseInstance } from '@repo/db/client';
 
 export interface AuthOptions {
   webUrl: string;
+  authSecret: string;
   db: DatabaseInstance;
 }
 
 export type AuthInstance = ReturnType<typeof betterAuth>;
 
-export const createAuth = ({ webUrl, db }: AuthOptions): AuthInstance => {
+export const createAuth = ({
+  webUrl,
+  db,
+  authSecret,
+}: AuthOptions): AuthInstance => {
   return betterAuth({
+    secret: authSecret,
     trustedOrigins: [webUrl],
     database: drizzleAdapter(db, {
       provider: 'pg',

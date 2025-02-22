@@ -3,12 +3,11 @@
   "extends": ["//"],
   "tasks": {
     "dev": {
-      "env": ["SERVER_*", "PUBLIC_WEB_URL"],
-      "inputs": ["$TURBO_DEFAULT$", ".env"],
-      "persistent": true
+      "env": ["DB_*"],
+      "inputs": ["$TURBO_DEFAULT$", ".env"]
     },
     "build": {
-      "env": ["SERVER_*", "PUBLIC_WEB_URL"],
+      "env": ["DB_*"],
       "inputs": ["$TURBO_DEFAULT$", ".env"]
     }
   }
