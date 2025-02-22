@@ -2,6 +2,7 @@
 
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import turboConfig from 'eslint-config-turbo/flat';
 import eslintPluginImport from 'eslint-plugin-import';
 import turboPlugin from 'eslint-plugin-turbo';
 import tseslint from 'typescript-eslint';
@@ -35,6 +36,7 @@ export const restrictEnvAccess = tseslint.config(
 );
 
 export default tseslint.config([
+  ...turboConfig,
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,

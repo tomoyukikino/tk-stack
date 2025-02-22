@@ -7,27 +7,26 @@
       "persistent": false,
       "cache": false
     },
-    "ui-add": {
-      "cache": false,
-      "interactive": true
-    },
     "clean": {
       "cache": false
     },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**"],
-      "cache": false
+      "outputs": ["dist/**"]
     },
     "format": {
       "outputs": [".cache/.prettiercache"],
       "outputLogs": "new-only"
     },
-    "typecheck": {
-      "dependsOn": ["^typecheck"]
+    "lint": {
+      "dependsOn": ["^topo", "^build"],
+      "outputs": [".cache/.eslintcache"]
     },
-    "lint": {},
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": [".cache/tsbuildinfo.json"]
+    },
     "push": {
       "cache": false,
       "interactive": true
@@ -35,6 +34,10 @@
     "studio": {
       "cache": false,
       "persistent": true
+    },
+    "ui-add": {
+      "cache": false,
+      "interactive": true
     },
     "copy-example-dotenv": {
       "cache": false

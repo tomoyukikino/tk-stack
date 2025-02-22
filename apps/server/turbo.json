@@ -3,7 +3,18 @@
   "extends": ["//"],
   "tasks": {
     "dev": {
+      "env": [
+        "AUTH_SECRET",
+        "DATABASE_URL",
+        "API_PORT",
+        "API_HOST",
+        "PUBLIC_WEB_URL"
+      ],
+      "inputs": ["$TURBO_DEFAULT$", ".env"],
       "persistent": true
+    },
+    "build": {
+      "inputs": ["$TURBO_DEFAULT$", ".env"]
     }
   }
 }
