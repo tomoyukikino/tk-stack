@@ -4,10 +4,8 @@ services:
       context: .
       dockerfile: ./apps/web/Dockerfile
       args:
-        # WEB_HOST and WEB_PORT aren't important as we are using nginx
-        # to serve the compiled dist on port 80
-        # We only need to provide the backend URL:
-        PUBLIC_API_URL: 'http://localhost:3035'
+        # Backend API server
+        PUBLIC_SERVER_URL: ${PUBLIC_SERVER_URL:-http://localhost:3035}
     ports:
       - 8085:80
     healthcheck:
@@ -26,11 +24,11 @@ services:
     ports:
       - 3035:3000
     environment:
-      - SERVER_AUTH_SECRET=please_change_this_in_production
-      - SERVER_POSTGRES_URL=postgres://postgres:postgres@db:5432/postgres
-      - SERVER_HOST=0.0.0.0
-      - SERVER_PORT=3000
-      - PUBLIC_WEB_URL=http://localhost:8085
+      - SERVER_AUTH_SECRET=${SERVER_AUTH_SECRET:-please_change_this_in_production}
+      - SERVER_POSTGRES_URL=${SERVER_POSTGRES_URL:-postgres://postgres:postgres@db:5432/postgres}
+      - SERVER_HOST=${SERVER_HOST:-0.0.0.0}
+      - SERVER_PORT=${SERVER_PORT:-3000}
+      - PUBLIC_WEB_URL=${PUBLIC_WEB_URL:-http://localhost:8085}
     healthcheck:
       interval: 30s
       timeout: 10s
@@ -48,9 +46,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-postgres}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -66,8 +64,8 @@ services:
       context: .
       dockerfile: ./packages/db/Dockerfile
     environment:
-      - DB_POSTGRES_URL=postgres://postgres:postgres@db:5432/postgres
-      - TURBO_UI=true
+      - DB_POSTGRES_URL=${DB_POSTGRES_URL:-postgres://postgres:postgres@db:5432/postgres}
+      - TURBO_UI=${TURBO_UI:-true}
     profiles:
       # Using profile to avoid starting this container this by default.
       # We only want to use this for pnpm db:push to apply the schema
