@@ -362,9 +362,6 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../db
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       '@trpc/client':
         specifier: 'catalog:'
         version: 11.0.0-rc.802(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(typescript@5.7.3)
@@ -411,9 +408,6 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../db
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       better-auth:
         specifier: 'catalog:'
         version: 1.1.19

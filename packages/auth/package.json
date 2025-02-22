@@ -21,7 +21,6 @@
   "dependencies": {
     "@auth/drizzle-adapter": "catalog:",
     "@repo/db": "workspace:*",
-    "@repo/env": "workspace:*",
     "better-auth": "catalog:"
   },
   "devDependencies": {

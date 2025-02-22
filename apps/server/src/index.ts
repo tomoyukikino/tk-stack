@@ -1,7 +1,7 @@
 import { serve } from '@hono/node-server';
 import { trpcServer } from '@hono/trpc-server';
-import { appRouter, createTRPCContext } from '@repo/api/server';
-import { auth } from '@repo/auth/server';
+import { createAPI } from '@repo/api/server';
+import { createAuth } from '@repo/auth/server';
 import { env } from '@repo/env';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
@@ -12,6 +12,9 @@ const wildcardPath = {
   BETTER_AUTH: '/api/auth/*',
   TRPC: '/trpc/*',
 } as const;
+
+const auth = createAuth({ webUrl: env.PUBLIC_WEB_URL });
+const { trpcRouter, createContext } = createAPI(auth);
 
 const app = new Hono<{
   Variables: {
@@ -56,8 +59,8 @@ app.on(['POST', 'GET'], wildcardPath.BETTER_AUTH, (c) =>
 app.use(
   wildcardPath.TRPC,
   trpcServer({
-    router: appRouter,
-    createContext: (c) => createTRPCContext({ headers: c.req.headers }),
+    router: trpcRouter,
+    createContext: (c) => createContext({ headers: c.req.headers }),
   }),
 );
 

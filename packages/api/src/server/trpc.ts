@@ -1,11 +1,17 @@
-import { auth } from '@repo/auth/server';
 import { db } from '@repo/db/client';
 import { initTRPC, TRPCError } from '@trpc/server';
 import SuperJSON from 'superjson';
+import type { AuthInstance } from '@repo/auth/server';
 
-export const createTRPCContext = async (opts: { headers: Headers }) => {
+export const createTRPCContext = async ({
+  auth,
+  headers,
+}: {
+  auth: AuthInstance;
+  headers: Headers;
+}) => {
   const session = await auth.api.getSession({
-    headers: opts.headers,
+    headers,
   });
   return {
     session,
