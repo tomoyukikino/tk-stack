@@ -28,6 +28,7 @@
       "outputs": [".cache/tsbuildinfo.json"]
     },
     "push": {
+      "env": ["DB_POSTGRES_URL"],
       "cache": false,
       "interactive": true
     },
