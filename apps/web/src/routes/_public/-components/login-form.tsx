@@ -34,7 +34,6 @@ export default function LoginCredentialsForm() {
         {
           email: value.email,
           password: value.password,
-          rememberMe: false,
         },
         {
           onSuccess: () => {
