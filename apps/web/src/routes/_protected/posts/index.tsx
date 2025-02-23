@@ -12,4 +12,11 @@ export const Route = createFileRoute('/_protected/posts/')({
   search: {
     middlewares: [stripSearchParams(postsSearchDefaults)],
   },
+  errorComponent: ({ error }) => {
+    return (
+      <div className="flex flex-col items-center w-full gap-y-3">
+        <div>{error.message}</div>
+      </div>
+    );
+  },
 });
