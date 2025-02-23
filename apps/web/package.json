@@ -5,17 +5,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "typecheck": "tsc --build",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "format": "prettier --check .  --ignore-path .prettierignore --ignore-path ../../.gitignore",
+    "build": "pnpm env:run build",
     "clean": "git clean -xdf .cache dist .turbo node_modules",
-    "env:run": "dotenv -- vite --configLoader runner",
+    "dev": "pnpm env:run dev",
     "env:copy-example": "shx -- cp -n .env.example .env",
     "env:remove": "shx -- rm -f .env",
-    "dev": "pnpm env:run dev",
-    "build": "pnpm env:run build",
+    "env:run": "dotenv -- vite --configLoader runner",
+    "format": "prettier --check .  --ignore-path .prettierignore --ignore-path ../../.gitignore",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "preview": "pnpm env:run preview",
-    "start": "pnpm env:run"
+    "start": "pnpm env:run",
+    "typecheck": "tsc --build"
   },
   "dependencies": {
     "@radix-ui/react-icons": "catalog:",

@@ -15,9 +15,9 @@
     }
   },
   "scripts": {
-    "dev": "tsc",
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "generate": "pnpx @better-auth/cli generate --output ../db/src/auth-schema.ts",
     "lint": "eslint",
