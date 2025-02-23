@@ -11,6 +11,7 @@ deployments and 100% type-safety.
 - [Quick Start](#quick-start)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
+  - [Using an External Database](#using-an-external-database)
 - [Developing](#developing)
   - [Working with a single package](#working-with-a-single-package)
   - [Adding new shadcn components](#adding-new-shadcn-components)
