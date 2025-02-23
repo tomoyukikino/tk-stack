@@ -52,23 +52,23 @@ catalogs:
       specifier: 5.66.9
       version: 5.66.9
     '@tanstack/react-router':
-      specifier: ^1.109.2
-      version: 1.109.2
+      specifier: ^1.111.3
+      version: 1.111.3
     '@tanstack/router-devtools':
-      specifier: ^1.109.2
-      version: 1.109.2
+      specifier: ^1.111.3
+      version: 1.111.3
     '@tanstack/router-plugin':
-      specifier: ^1.109.2
-      version: 1.109.2
+      specifier: ^1.111.3
+      version: 1.111.3
     '@trpc/client':
-      specifier: 11.0.0-rc.802
-      version: 11.0.0-rc.802
+      specifier: 11.0.0-rc.804
+      version: 11.0.0-rc.804
     '@trpc/server':
-      specifier: 11.0.0-rc.802
-      version: 11.0.0-rc.802
+      specifier: 11.0.0-rc.804
+      version: 11.0.0-rc.804
     '@trpc/tanstack-react-query':
-      specifier: 11.0.0-rc.802
-      version: 11.0.0-rc.802
+      specifier: 11.0.0-rc.804
+      version: 11.0.0-rc.804
     '@types/eslint-config-prettier':
       specifier: ^6.11.3
       version: 6.11.3
@@ -221,7 +221,7 @@ importers:
         version: 1.13.8(hono@4.7.2)
       '@hono/trpc-server':
         specifier: 'catalog:'
-        version: 0.3.4(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(hono@4.7.2)
+        version: 0.3.4(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(hono@4.7.2)
       '@repo/api':
         specifier: workspace:*
         version: link:../../packages/api
@@ -291,16 +291,16 @@ importers:
         version: 5.66.9(react@19.0.0)
       '@tanstack/react-router':
         specifier: 'catalog:'
-        version: 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/router-devtools':
         specifier: 'catalog:'
-        version: 1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(csstype@3.1.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(csstype@3.1.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@trpc/client':
         specifier: 'catalog:'
-        version: 11.0.0-rc.802(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(typescript@5.7.3)
+        version: 11.0.0-rc.804(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(typescript@5.7.3)
       '@trpc/tanstack-react-query':
         specifier: 'catalog:'
-        version: 11.0.0-rc.802(@tanstack/react-query@5.66.9(react@19.0.0))(@trpc/client@11.0.0-rc.802(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(typescript@5.7.3))(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+        version: 11.0.0-rc.804(@tanstack/react-query@5.66.9(react@19.0.0))(@trpc/client@11.0.0-rc.804(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(typescript@5.7.3))(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       dotenv-cli:
         specifier: 'catalog:'
         version: 8.0.0
@@ -340,10 +340,10 @@ importers:
         version: link:../../tools/typescript
       '@tanstack/router-plugin':
         specifier: 'catalog:'
-        version: 1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3))
+        version: 1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3))
       '@trpc/server':
         specifier: 'catalog:'
-        version: 11.0.0-rc.802(typescript@5.7.3)
+        version: 11.0.0-rc.804(typescript@5.7.3)
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.5
@@ -379,10 +379,10 @@ importers:
         version: link:../db
       '@trpc/client':
         specifier: 'catalog:'
-        version: 11.0.0-rc.802(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(typescript@5.7.3)
+        version: 11.0.0-rc.804(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(typescript@5.7.3)
       '@trpc/server':
         specifier: 'catalog:'
-        version: 11.0.0-rc.802(typescript@5.7.3)
+        version: 11.0.0-rc.804(typescript@5.7.3)
       superjson:
         specifier: 'catalog:'
         version: 2.2.2
@@ -2039,8 +2039,8 @@ packages:
     peerDependencies:
       react: ^18 || ^19
 
-  '@tanstack/react-router@1.109.2':
-    resolution: {integrity: sha512-cJZGIvYIrd5lcwbwoB2vxJe379TQZIM5/RAzlDSrvV5KAPlkmK3cqZHZ8zPrsZIBASEyERM8Od+jM9s3qDTXkA==}
+  '@tanstack/react-router@1.111.3':
+    resolution: {integrity: sha512-OsqAuExa4WF7+BbjENWlb4dHRousxU5jahJHUPyO0gaUcWwzaVloJKi8lTFTd1PWQ8waz5V7BedkV67hd8syUw==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
@@ -2052,15 +2052,15 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@tanstack/router-core@1.108.0':
-    resolution: {integrity: sha512-lo6Nqdp8gxWNZ8YZ6UhiQgR0CgcAiMaw1cxgKK7M4u3nFFwqW7Hzycl5ik1l3NRh5/pQVK+OVzlKok5rrrHxSg==}
+  '@tanstack/router-core@1.111.3':
+    resolution: {integrity: sha512-q+CHuOhTgqHudVKijL89jIdLe5A00RzV8ZMMSi4qiHGnggm4nisF8eSE3dFQaic1+YFk1wR7dfFA2hvkr1hFIA==}
     engines: {node: '>=12'}
 
-  '@tanstack/router-devtools@1.109.2':
-    resolution: {integrity: sha512-jz3o5srcbFSUTNJHvBlDGcAW+Q2YETbJAiCiSZ7sjaNhNd3odPwGw0JLc4Dh1mkL0Vp94L7eJdIBfmNMBuOR9w==}
+  '@tanstack/router-devtools@1.111.3':
+    resolution: {integrity: sha512-1b/B35+Ph1F8LYUKgaGXw+o3jbfIG3wPy7HP7It8/vLIwRH1IZu5rnHcevybdGbpnGUxcWjQVbDQuKEZow9yoQ==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/react-router': ^1.109.2
+      '@tanstack/react-router': ^1.111.3
       csstype: ^3.0.10
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
@@ -2068,21 +2068,21 @@ packages:
       csstype:
         optional: true
 
-  '@tanstack/router-generator@1.109.2':
-    resolution: {integrity: sha512-CCEH19Vl+ukMkP9gOZPg85U7rMwwlWxJ4hRMPgU7DIyMlzuvv7l6earvXzuGCKLN0m20TO0QuqjJfCFIKkP2RA==}
+  '@tanstack/router-generator@1.111.3':
+    resolution: {integrity: sha512-LQCn4arMDYwm1X/n8S/ahsDWOEV6niG0xsRV1nMGmAGMBiaTc1FESPKpRsVc/EKGhR0gE0VnLIbrzWnubkJ/4g==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/react-router': ^1.109.2
+      '@tanstack/react-router': ^1.111.3
     peerDependenciesMeta:
       '@tanstack/react-router':
         optional: true
 
-  '@tanstack/router-plugin@1.109.2':
-    resolution: {integrity: sha512-Tap6WQIE6elQkTSJpnBxUZDMNGkaqjEPXiotM2VVpD6qy4euZmYdUV1rAgtD2w8AM18XecIC4tBprNLchLYG3A==}
+  '@tanstack/router-plugin@1.111.3':
+    resolution: {integrity: sha512-RNcMcFXO5ge8pQobssS9qEvYBladItGVXeGZVB8RulvD1jH3qP3UIeigOr9OM190aYo3LGm4rxPTewe7tf0rpA==}
     engines: {node: '>=12'}
     peerDependencies:
       '@rsbuild/core': '>=1.0.2'
-      '@tanstack/react-router': ^1.109.2
+      '@tanstack/react-router': ^1.111.3
       vite: '>=5.0.0 || >=6.0.0'
       vite-plugin-solid: ^2.11.2
       webpack: '>=5.92.0'
@@ -2109,23 +2109,23 @@ packages:
     resolution: {integrity: sha512-XvX8bfdo4CYiCW+ItVdBfCorh3PwQFqYqd7ll+XKWiWOJpqUGIG7VlziVavARZpUySiY2VBlHadiUYS7jhgjRg==}
     engines: {node: '>=12'}
 
-  '@trpc/client@11.0.0-rc.802':
-    resolution: {integrity: sha512-oToR54iL/sxmu2RwVxh/dJfY6CrZ8IeSEpsu5KjtlwQHM7/w5awSTF4+odjhgB0QnVFgM0vOjw8MNbExKCKSFw==}
+  '@trpc/client@11.0.0-rc.804':
+    resolution: {integrity: sha512-JEgAjI2tFdcIpnIMqQFpqmc9KWAFcG5uNIMOo3rwpgIh5RGOEhPwlnXj3AAexC+r97QmSlsbUZSnjPAh4wxxJA==}
     peerDependencies:
-      '@trpc/server': 11.0.0-rc.802+1eccc1171
+      '@trpc/server': 11.0.0-rc.804+ab12d16b0
       typescript: '>=5.7.2'
 
-  '@trpc/server@11.0.0-rc.802':
-    resolution: {integrity: sha512-CkV2qTnmSOy84Qtev3B4WA6oLft7q2pg8X/IewssaD4LQevBrmTdTPDfvGeT1wdCa/NAT4ZIMt7AgbbWfAs/9Q==}
+  '@trpc/server@11.0.0-rc.804':
+    resolution: {integrity: sha512-jTrSXzkahHvTKOM9AhDMTLMOI/oCQ04PfC+PRCfp0PIXYXmY4gdVUQjQAqRcenRFsuMz1vppBV0BzSeEk3v8uA==}
     peerDependencies:
       typescript: '>=5.7.2'
 
-  '@trpc/tanstack-react-query@11.0.0-rc.802':
-    resolution: {integrity: sha512-AtJRDVqgA1aoQldWPmIYo0g4gYKCKqO6vWKuCgLKsy+uM62ZZq1fSZVYV7148px0YiACLZUpjxevwcSR+3jmOg==}
+  '@trpc/tanstack-react-query@11.0.0-rc.804':
+    resolution: {integrity: sha512-PCDO8YWgvx6OSEl6fmAiZ7jI0X8ZmVen3l3oIzqBYxEWYaZnznvv5c9aiqL7NaqXEYS3VcK+Ox43VYn+kZrbYw==}
     peerDependencies:
       '@tanstack/react-query': ^5.62.8
-      '@trpc/client': 11.0.0-rc.802+1eccc1171
-      '@trpc/server': 11.0.0-rc.802+1eccc1171
+      '@trpc/client': 11.0.0-rc.804+ab12d16b0
+      '@trpc/server': 11.0.0-rc.804+ab12d16b0
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
       typescript: '>=5.7.2'
@@ -4474,9 +4474,9 @@ snapshots:
     dependencies:
       hono: 4.7.2
 
-  '@hono/trpc-server@0.3.4(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(hono@4.7.2)':
+  '@hono/trpc-server@0.3.4(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(hono@4.7.2)':
     dependencies:
-      '@trpc/server': 11.0.0-rc.802(typescript@5.7.3)
+      '@trpc/server': 11.0.0-rc.804(typescript@5.7.3)
       hono: 4.7.2
 
   '@humanfs/core@0.19.1': {}
@@ -5535,11 +5535,11 @@ snapshots:
       '@tanstack/query-core': 5.66.4
       react: 19.0.0
 
-  '@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@tanstack/history': 1.99.13
       '@tanstack/react-store': 0.7.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/router-core': 1.108.0
+      '@tanstack/router-core': 1.111.3
       jsesc: 3.1.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -5553,14 +5553,14 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       use-sync-external-store: 1.4.0(react@19.0.0)
 
-  '@tanstack/router-core@1.108.0':
+  '@tanstack/router-core@1.111.3':
     dependencies:
       '@tanstack/history': 1.99.13
       '@tanstack/store': 0.7.0
 
-  '@tanstack/router-devtools@1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(csstype@3.1.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tanstack/router-devtools@1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(csstype@3.1.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       clsx: 2.1.1
       goober: 2.1.16(csstype@3.1.3)
       react: 19.0.0
@@ -5568,16 +5568,16 @@ snapshots:
     optionalDependencies:
       csstype: 3.1.3
 
-  '@tanstack/router-generator@1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
+  '@tanstack/router-generator@1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
       '@tanstack/virtual-file-routes': 1.99.0
       prettier: 3.5.2
       tsx: 4.19.3
       zod: 3.24.2
     optionalDependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
-  '@tanstack/router-plugin@1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3))':
+  '@tanstack/router-plugin@1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3))':
     dependencies:
       '@babel/core': 7.26.9
       '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.9)
@@ -5585,7 +5585,7 @@ snapshots:
       '@babel/template': 7.26.9
       '@babel/traverse': 7.26.9
       '@babel/types': 7.26.9
-      '@tanstack/router-generator': 1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@tanstack/router-generator': 1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@tanstack/router-utils': 1.102.2
       '@tanstack/virtual-file-routes': 1.99.0
       '@types/babel__core': 7.20.5
@@ -5596,7 +5596,7 @@ snapshots:
       unplugin: 2.2.0
       zod: 3.24.2
     optionalDependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       vite: 6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3)
     transitivePeerDependencies:
       - supports-color
@@ -5612,20 +5612,20 @@ snapshots:
 
   '@tanstack/virtual-file-routes@1.99.0': {}
 
-  '@trpc/client@11.0.0-rc.802(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(typescript@5.7.3)':
+  '@trpc/client@11.0.0-rc.804(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(typescript@5.7.3)':
     dependencies:
-      '@trpc/server': 11.0.0-rc.802(typescript@5.7.3)
+      '@trpc/server': 11.0.0-rc.804(typescript@5.7.3)
       typescript: 5.7.3
 
-  '@trpc/server@11.0.0-rc.802(typescript@5.7.3)':
+  '@trpc/server@11.0.0-rc.804(typescript@5.7.3)':
     dependencies:
       typescript: 5.7.3
 
-  '@trpc/tanstack-react-query@11.0.0-rc.802(@tanstack/react-query@5.66.9(react@19.0.0))(@trpc/client@11.0.0-rc.802(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(typescript@5.7.3))(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
+  '@trpc/tanstack-react-query@11.0.0-rc.804(@tanstack/react-query@5.66.9(react@19.0.0))(@trpc/client@11.0.0-rc.804(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(typescript@5.7.3))(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:
       '@tanstack/react-query': 5.66.9(react@19.0.0)
-      '@trpc/client': 11.0.0-rc.802(@trpc/server@11.0.0-rc.802(typescript@5.7.3))(typescript@5.7.3)
-      '@trpc/server': 11.0.0-rc.802(typescript@5.7.3)
+      '@trpc/client': 11.0.0-rc.804(@trpc/server@11.0.0-rc.804(typescript@5.7.3))(typescript@5.7.3)
+      '@trpc/server': 11.0.0-rc.804(typescript@5.7.3)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       typescript: 5.7.3
