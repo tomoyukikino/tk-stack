@@ -255,7 +255,7 @@ paired with
 
 Personally, I recommend deploying on a Virtual Private Server that has one of
 these Self-hostable PaaS installed, which automatically handles the complexity
-of deployment for you:
+of deployment mentioned above for you:
 
 - Coolify
   - https://github.com/coollabsio/coolify
@@ -263,6 +263,15 @@ of deployment for you:
 - Dokploy
   - https://github.com/Dokploy/dokploy
   - http://dokploy.com
+
+Do note that for the **web** application, the `PUBLIC_SERVER_URL` variable
+available at build time (as a docker build argument), rather than an environment
+variable at runtime.
+
+Also, both the **server** application's `PUBLIC_WEB_URL` and the **web**
+application's `PUBLIC_SERVER_URL` needs to be set as internet-accessible URLs
+when deployed, e.g. `https://mycompany.com` and `https://api.mycompany.com`,
+rather than referencing `http://localhost:8085` like in development.
 
 ### Using Major Platforms
 
