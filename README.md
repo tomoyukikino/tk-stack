@@ -111,8 +111,8 @@ cd YOUR_PROJECT
 # Install all dependencies for apps and packages
 pnpm install
 
-# Set up environment variables in packages/db (for migration) and apps/*
-pnpm copy-example-env
+# Copy .env.example to .env in all applications and packages
+pnpm env:copy-example
 
 # Start a local postgres instance in the background (e.g. using docker)
 docker compose up db --detach
