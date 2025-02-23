@@ -1,5 +1,12 @@
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipArrow,
+} from '@repo/ui/components/tooltip';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import { postsLinkOptions } from '@/validations/posts-link-options';
 
@@ -20,15 +27,31 @@ function RouteComponent() {
         </p>
       </div>
       <hr className="border border-gray-500 mt-3" />
-      <Button
-        asChild
-        variant="link"
-        className="w-12 border border-gray-500 mt-6 hover:brightness-150"
-      >
-        <Link {...postsLinkOptions}>
-          <ArrowLeftIcon />
-        </Link>
-      </Button>
+
+      <TooltipProvider delayDuration={0}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              asChild
+              variant="link"
+              className="w-12 border border-gray-500 mt-6 hover:brightness-150"
+            >
+              <Link {...postsLinkOptions}>
+                <ArrowLeftIcon />
+              </Link>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent
+            side="right"
+            align="center"
+            sideOffset={4}
+            className="bg-neutral-500 fill-neutral-500 duration-0"
+          >
+            <span>View all posts</span>
+            <TooltipArrow width={15} height={10} className="duration-0" />
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
 
       <div className="bg-elevated shadow rounded-2xl p-6 w-full min-h-96 border border-gray-500 break-words mt-6">
         <p className="leading-relaxed whitespace-break-spaces">

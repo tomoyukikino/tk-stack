@@ -1,4 +1,11 @@
 import { Button } from '@repo/ui/components/button';
+import {
+  Tooltip,
+  TooltipArrow,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@repo/ui/components/tooltip';
 import { cn } from '@repo/ui/lib/utils';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
@@ -28,16 +35,31 @@ export default function DeletePostButton({
     }),
   );
   return (
-    <Button
-      disabled={deletePostMutation.isPending}
-      onClick={(e) => {
-        e.preventDefault();
-        deletePostMutation.mutate({ id: postId });
-      }}
-      variant="destructive"
-      className={cn('h-9 w-10', className)}
-    >
-      {children}
-    </Button>
+    <TooltipProvider delayDuration={0}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            disabled={deletePostMutation.isPending}
+            onClick={(e) => {
+              e.preventDefault();
+              deletePostMutation.mutate({ id: postId });
+            }}
+            variant="destructive"
+            className={cn('h-9 w-10', className)}
+          >
+            {children}
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent
+          side="left"
+          align="center"
+          sideOffset={4}
+          className="bg-neutral-500 fill-neutral-500 duration-0"
+        >
+          <span>Delete Post</span>
+          <TooltipArrow width={15} height={10} className="duration-0" />
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 }

@@ -13,7 +13,7 @@
   "exports": {
     "./lib/*": {
       "types": "./dist/src/lib/*.d.ts",
-      "default": "./src/lib/*.ts"
+      "default": "./src/lib/*.js"
     },
     "./components/*": {
       "types": "./dist/src/components/*.d.ts",
@@ -38,6 +38,7 @@
     "@radix-ui/react-label": "catalog:",
     "@radix-ui/react-slot": "catalog:",
     "@radix-ui/react-toast": "catalog:",
+    "@radix-ui/react-tooltip": "catalog:",
     "class-variance-authority": "catalog:",
     "next-themes": "catalog:",
     "radix-ui": "catalog:",
