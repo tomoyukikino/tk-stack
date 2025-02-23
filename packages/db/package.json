@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "build": "tsc --build tsconfig.package.json",
+    "build": "tsc --build",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "dev": "tsc --build tsconfig.package.json",
     "env:copy-example": "shx -- cp -n .env.example .env",
@@ -28,7 +28,7 @@
     "lint": "eslint",
     "push": "pnpm env:run drizzle-kit push",
     "studio": "pnpm env:run drizzle-kit studio",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+    "typecheck": "tsc --build --noEmit --emitDeclarationOnly false"
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
