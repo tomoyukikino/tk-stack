@@ -46,7 +46,7 @@
     "dotenv-cli": "catalog:",
     "drizzle-kit": "catalog:",
     "eslint": "catalog:",
-    "shx": "^0.3.4",
+    "shx": "catalog:",
     "typescript": "catalog:"
   }
 }
