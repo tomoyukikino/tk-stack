@@ -23,7 +23,7 @@ function RouteComponent() {
       <Button
         asChild
         variant="link"
-        className="w-12 border border-gray-500 mt-6"
+        className="w-12 border border-gray-500 mt-6 hover:brightness-150"
       >
         <Link {...postsLinkOptions}>
           <ArrowLeftIcon />
