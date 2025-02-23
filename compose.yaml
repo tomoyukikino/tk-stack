@@ -45,6 +45,7 @@ services:
     image: docker.io/postgres:latest
     ports:
       - 5432:5432
+    command: ['postgres', '-c', 'log_statement=all']
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-postgres}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
