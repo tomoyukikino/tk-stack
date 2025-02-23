@@ -1,4 +1,4 @@
-# RT Stack
+<table><tr><td><img align="absmiddle" width="40" src="./apps/web/public/favicon.png"></td><td><h1>RT Stack</h1></td></tr></table>
 
 A modern [turborepo](https://turbo.build/repo/docs) template for building
 fullstack projects with modular components, shared configs, containerised
