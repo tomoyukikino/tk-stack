@@ -1,9 +1,9 @@
-.cache/
-.turbo/
-.DS_Store
+**/.cache/
+**/.turbo/
+**/.DS_Store
 
-.env*
+**/.env*
 
-dist/
-node_modules/
-out/
+**/dist/
+**/node_modules/
+**/out/
