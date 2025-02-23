@@ -46,6 +46,31 @@ export default defineConfig({
     port,
     strictPort: true,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        /**
+         * Modified from:
+         * https://github.com/vitejs/vite/discussions/9440#discussioncomment-11430454
+         */
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            const modulePath = id.split('node_modules/')[1];
+            const topLevelFolder = modulePath?.split('/')[0];
+            if (topLevelFolder !== '.pnpm') {
+              return topLevelFolder;
+            }
+            const scopedPackageName = modulePath?.split('/')[1];
+            const chunkName =
+              scopedPackageName?.split('@')[
+                scopedPackageName.startsWith('@') ? 1 : 0
+              ];
+            return chunkName;
+          }
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
