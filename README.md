@@ -121,16 +121,6 @@ docker compose up db --detach
 pnpm db:push
 ```
 
-If you use an external postgres database, you will need to modify the following
-environment variables:
-
-1. `SERVER_POSTGRES_URL` in the file `apps/server/.env`
-
-   - used at runtime by the backend server
-
-1. `DB_POSTGRES_URL` in the file `packages/db/.env`
-   - used in database schema migrations with `pnpm db:push`
-
 You can then start all applications with
 
 ```bash
@@ -141,6 +131,19 @@ By default the following URLs will be accesibile:
 
 - web application: http://localhost:8085
 - backend server: http://localhost:3035
+
+### Using an External Database
+
+When using an external postgres database (e.g. from [supabase](https://supabase.com)), you can skip the step that spins up a local postgres instance with docker.
+
+Instead, you will need to modify the following environment variables:
+
+1. `SERVER_POSTGRES_URL` in the file `apps/server/.env`
+
+   - used at runtime by the backend server in `pnpm dev`
+
+1. `DB_POSTGRES_URL` in the file `packages/db/.env`
+   - used in database schema migrations with `pnpm db:push`
 
 ## Developing
 
