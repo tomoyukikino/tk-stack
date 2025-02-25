@@ -71,7 +71,7 @@ app.get('/healthcheck', (c) => {
   return c.text('OK');
 });
 
-serve(
+const server = serve(
   {
     fetch: app.fetch,
     port: env.SERVER_PORT,
@@ -82,3 +82,17 @@ serve(
     console.log(`Hono internal server: http://${host}:${info.port}`);
   },
 );
+
+const shutdown = () => {
+  server.close((error) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('\nServer has stopped gracefully.');
+    }
+    process.exit(0);
+  });
+};
+
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
