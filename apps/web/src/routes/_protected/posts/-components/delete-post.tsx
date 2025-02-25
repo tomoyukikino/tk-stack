@@ -11,6 +11,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import type { ReactNode } from '@tanstack/react-router';
 import { trpc } from '@/router';
+import Spinner from '@/routes/-components/common/spinner';
 
 export default function DeletePostButton({
   children,
@@ -47,7 +48,7 @@ export default function DeletePostButton({
             variant="destructive"
             className={cn('h-9 w-10', className)}
           >
-            {children}
+            {deletePostMutation.isPending ? <Spinner /> : children}
           </Button>
         </TooltipTrigger>
         <TooltipContent

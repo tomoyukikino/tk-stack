@@ -5,7 +5,7 @@ import type { AppRouter } from '@repo/api/server';
 import { queryClient } from '@/clients/queryClient';
 import { trpcClient } from '@/clients/trpcClient';
 import { routeTree } from '@/routeTree.gen';
-import Spinner from '@/routes/-components/layout/spinner';
+import Spinner from '@/routes/-components/common/spinner';
 
 export const trpc = createTRPCOptionsProxy<AppRouter>({
   client: trpcClient,

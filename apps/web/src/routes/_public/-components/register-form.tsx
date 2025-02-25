@@ -9,6 +9,7 @@ import { toast } from 'sonner';
 import * as v from 'valibot';
 import { authClient } from '@/clients/authClient';
 import FormFieldInfo from '@/routes/-components/common/form-field-info';
+import Spinner from '@/routes/-components/common/spinner';
 
 const FormSchema = v.pipe(
   v.object({
@@ -191,7 +192,7 @@ export default function RegisterCredentialsForm() {
         selector={(state) => [state.canSubmit, state.isSubmitting]}
         children={([canSubmit, isSubmitting]) => (
           <Button type="submit" disabled={!canSubmit} className="h-12 mt-3">
-            {isSubmitting ? '...' : 'Register'}
+            {isSubmitting ? <Spinner /> : 'Register'}
           </Button>
         )}
       />

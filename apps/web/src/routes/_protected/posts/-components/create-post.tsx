@@ -20,6 +20,7 @@ import { toast } from 'sonner';
 import * as v from 'valibot';
 import { trpc } from '@/router';
 import FormFieldInfo from '@/routes/-components/common/form-field-info';
+import Spinner from '@/routes/-components/common/spinner';
 
 const FormSchema = v.object({
   title: v.pipe(
@@ -153,7 +154,7 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
                   disabled={!canSubmit}
                   className="mt-3 h-10 w-24"
                 >
-                  {isSubmitting ? '...' : `Create`}
+                  {isSubmitting ? <Spinner /> : `Create`}
                 </Button>
               )}
             />
