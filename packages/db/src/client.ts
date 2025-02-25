@@ -8,7 +8,7 @@ export interface DatabaseClientOptions {
 
 export type DatabaseInstance = NodePgDatabase<typeof schema>;
 
-export const createDatabaseClient = ({
+export const createDb = ({
   databaseUrl,
 }: DatabaseClientOptions): DatabaseInstance => {
   return drizzle({
