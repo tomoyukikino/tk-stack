@@ -19,6 +19,13 @@ const Toaster = ({ ...props }: ToasterProps) => {
             'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',
           cancelButton:
             'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',
+
+          // !important to override: https://github.com/shadcn-ui/ui/issues/3579
+          error: '!border-none !bg-toast-error !text-foreground',
+          info: '!border-none !bg-toast-info !text-foreground',
+          loading: '!border-none !bg-toast-loading !text-foreground',
+          success: '!border-none !bg-toast-success !text-foreground',
+          warning: '!border-none !bg-toast-warning !text-foreground',
         },
       }}
       {...props}
