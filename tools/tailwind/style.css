@@ -147,11 +147,11 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
-    --toast-error: 0 100% 90%;
-    --toast-info: 330 100% 90%;
+    --toast-error: 0 100% 80%;
+    --toast-info: 220 50% 85%;
     --toast-loading: 0 0% 90%;
-    --toast-success: 142 76% 90%;
-    --toast-warning: 48 96% 90%;
+    --toast-success: 140 50% 80%;
+    --toast-warning: 40 100% 60%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -202,14 +202,14 @@
     --chart-5: 340 75% 55%;
 
     --toast-error: 0 100% 30%;
-    --toast-info: 330 100% 30%;
-    --toast-loading: 0 0% 30%;
-    --toast-success: 142 76% 30%;
-    --toast-warning: 48 96% 30%;
+    --toast-info: 220 50% 30%;
+    --toast-loading: 0 0% 10%;
+    --toast-success: 140 50% 20%;
+    --toast-warning: 40 100% 30%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --toast-info: 200 60% 30%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
