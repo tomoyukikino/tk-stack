@@ -254,9 +254,9 @@ paired with
   [Caddy](https://github.com/caddyserver/caddy)
 - container orchestration platforms like [Docker Swarm](https://docs.docker.com/engine/swarm) and [Kubernetes](https://kubernetes.io)
 
-Personally, I recommend deploying on a Virtual Private Server that has one of
-these Self-hostable PaaS installed, which automatically handles the complexity
-of deployment mentioned above for you:
+Personally, I recommend setting up a Virtual Private Server (e.g. on [Hetzner](https://www.hetzner.com))
+and make use of self-hostable PaaS software which automatically handles the complexity of deployment
+mentioned above for you - these includes:
 
 - Coolify
   - https://github.com/coollabsio/coolify
