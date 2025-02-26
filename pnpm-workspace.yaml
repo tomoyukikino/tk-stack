@@ -19,7 +19,7 @@ catalog:
   '@tanstack/react-query': 5.66.9
   '@tanstack/react-router': ^1.111.11
   '@tanstack/router-devtools': ^1.111.11
-  '@tanstack/router-plugin': ^1.111.11
+  '@tanstack/router-plugin': ^1.111.12
   '@trpc/client': 11.0.0-rc.808
   '@trpc/server': 11.0.0-rc.808
   '@trpc/tanstack-react-query': 11.0.0-rc.808
@@ -36,7 +36,7 @@ catalog:
   drizzle-orm: ^0.40.0
   drizzle-valibot: ^0.4.0
   eslint: ^9.21.0
-  eslint-config-prettier: ^10.0.1
+  eslint-config-prettier: ^10.0.2
   eslint-config-turbo: ^2.4.4
   eslint-plugin-import: ^2.31.0
   eslint-plugin-only-warn: ^1.1.0
