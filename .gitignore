@@ -5,6 +5,7 @@ out/
 .cache/
 .turbo/
 
-.env
+.env*
+!.env.example
 
 .DS_Store
