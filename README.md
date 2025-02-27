@@ -1,4 +1,15 @@
-<table><tr><td><img align="absmiddle" width="40" src="./apps/web/public/favicon.png"></td><td><h1>RT Stack</h1></td></tr></table>
+<table>
+  <tr>
+    <td>
+      <img align="absmiddle" width="40" src="./apps/web/public/favicon.png">
+    </td>
+    <td>
+      <h1>
+        <a href="https://nktnet1.github.io/rt-stack" target="_blank">RT Stack</a>
+      </h1>
+    </td>
+  </tr>
+</table>
 
 A modern [turborepo](https://turbo.build/repo/docs) template for building
 fullstack projects with modular components, shared configs, containerised
@@ -65,6 +76,10 @@ The following features are implemented out-of-the-box:
 - login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password)) credentials provider
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
+
+You can experiment with the deployed demo from the template starter code below:
+
+- https://nktnet1.github.io/rt-stack
 
 ### Inspirations & Goals
 
