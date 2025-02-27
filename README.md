@@ -1,7 +1,9 @@
 <table>
   <tr>
     <td>
-      <img align="absmiddle" width="40" src="./apps/web/public/favicon.png">
+      <a href="https://nktnet1.github.io/rt-stack" target="_blank">
+        <img align="absmiddle" width="40" src="./apps/web/public/favicon.png">
+      </a>
     </td>
     <td>
       <h1>
