@@ -17,7 +17,7 @@ export const createAuth = ({
 }: AuthOptions): AuthInstance => {
   return betterAuth({
     secret: authSecret,
-    trustedOrigins: [webUrl],
+    trustedOrigins: [webUrl].map((url) => new URL(url).origin),
     database: drizzleAdapter(db, {
       provider: 'pg',
     }),

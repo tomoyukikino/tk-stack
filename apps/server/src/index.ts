@@ -34,7 +34,7 @@ app.use(logger());
 app.use(
   wildcardPath.BETTER_AUTH,
   cors({
-    origin: [env.PUBLIC_WEB_URL],
+    origin: [env.PUBLIC_WEB_URL].map((url) => new URL(url).origin),
     credentials: true,
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
