@@ -8,6 +8,8 @@ import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { env } from './env';
 
+const trustedOrigins = [env.PUBLIC_WEB_URL].map((url) => new URL(url).origin);
+
 const wildcardPath = {
   ALL: '*',
   BETTER_AUTH: '/api/auth/*',
@@ -34,7 +36,7 @@ app.use(logger());
 app.use(
   wildcardPath.BETTER_AUTH,
   cors({
-    origin: [env.PUBLIC_WEB_URL].map((url) => new URL(url).origin),
+    origin: trustedOrigins,
     credentials: true,
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
@@ -46,7 +48,7 @@ app.use(
 app.use(
   wildcardPath.TRPC,
   cors({
-    origin: [env.PUBLIC_WEB_URL],
+    origin: trustedOrigins,
     credentials: true,
   }),
 );
