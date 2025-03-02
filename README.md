@@ -1,15 +1,13 @@
 <table>
   <tr>
     <td>
-      <a href="https://rtstack.nktnet.uk
-" target="_blank">
+      <a href="https://rtstack.nktnet.uk" target="_blank">
         <img align="absmiddle" width="40" src="./apps/web/public/favicon.png">
       </a>
     </td>
     <td>
       <h1>
-        <a href="https://rtstack.nktnet.uk
-" target="_blank">RT Stack</a>
+        <a href="https://rtstack.nktnet.uk" target="_blank">RT Stack</a>
       </h1>
     </td>
   </tr>
@@ -310,6 +308,16 @@ the [NodeJS runtime](https://hono.dev/docs/getting-started/nodejs). However,
 this can be exchanged with other runtimes before deploying to your chosen
 platforms. For example, deploying to Netlify is covered within
 [Hono's documentations](https://hono.dev/docs/getting-started/netlify#_4-deploy).
+
+Note that when deploying your web frontend and server backend to two different
+domains, you will need to [tweak your better-auth configurations](https://www.better-auth.com/docs/integrations/hono#cross-domain-cookies).
+Apple's Safari browser also does not support third party cookies, so auth will
+not function as expected without any proxy workarounds.
+
+To keep things simple, it is recommendeded that you host your frontend and
+backend on the same root domain and differ by subdomains. For example, the
+frontend can be served at either `example.com` or `web.example.com`, and the
+backend hosted at `api.example.com`.
 
 ## Other Notes
 
