@@ -1,13 +1,15 @@
 <table>
   <tr>
     <td>
-      <a href="https://nktnet1.github.io/rt-stack" target="_blank">
+      <a href="https://rtstack.nktnet.uk
+" target="_blank">
         <img align="absmiddle" width="40" src="./apps/web/public/favicon.png">
       </a>
     </td>
     <td>
       <h1>
-        <a href="https://nktnet1.github.io/rt-stack" target="_blank">RT Stack</a>
+        <a href="https://rtstack.nktnet.uk
+" target="_blank">RT Stack</a>
       </h1>
     </td>
   </tr>
@@ -80,7 +82,7 @@ The following features are implemented out-of-the-box:
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
-You can visit the [live demo](https://nktnet1.github.io/rt-stack) to see these features in action.
+You can visit the [live demo](https://rtstack.nktnet.uk) to see these features in action.
 
 ### Inspirations & Goals
 
@@ -258,7 +260,7 @@ details, see
 ## Deployment
 
 > [!TIP]
-> The [live demo](https://nktnet1.github.io/rt-stack) of RT Stack is currently deployed to
+> The [live demo](https://rtstack.nktnet.uk) of RT Stack is currently deployed to
 >
 > - github pages for the web frontend
 > - fly.io for the server backend and postgres database
