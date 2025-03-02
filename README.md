@@ -192,7 +192,7 @@ To install a single Shadcn/UI component, e.g. `button`, use the command
 pnpm ui-add button
 ```
 
-You can also open an intera
+You can also open an interactive session to select components using a TUI by not passing any arguments
 
 ```bash
 pnpm ui-add
