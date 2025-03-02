@@ -36,6 +36,7 @@ deployments and 100% type-safety.
 - [Other Notes](#other-notes)
   - [Tanstack Router Layout](#tanstack-router-layout)
   - [Server API Artificial Delays](#server-api-artificial-delays)
+  - [Better Auth Plugins](#better-auth-plugins)
   - [Environment Variables](#environment-variables)
 
 ## About
@@ -331,7 +332,7 @@ There is an artificial delay added in development mode to simulate API usage in
 real-world environments. You can disable this by removing the `timingMiddleware`
 in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
 
-### Better-Auth plugins
+### Better-Auth Plugins
 
 When adding new plugins to better-auth, you should also update the `AuthClient`
 type definition. For example, when adding the [admin plugin](https://www.better-auth.com/docs/plugins/admin):
