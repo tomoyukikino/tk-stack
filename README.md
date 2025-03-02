@@ -262,7 +262,7 @@ details, see
 > [!TIP]
 > The [live demo](https://rtstack.nktnet.uk) of RT Stack is currently deployed to
 >
-> - github pages for the web frontend
+> - vercel for the web frontend
 > - fly.io for the server backend and postgres database
 
 ### Using Containers
