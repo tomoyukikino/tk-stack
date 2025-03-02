@@ -35,7 +35,7 @@ deployments and 100% type-safety.
   - [Using Major Platforms](#using-major-platforms)
 - [Other Notes](#other-notes)
   - [Tanstack Router Layout](#tanstack-router-layout)
-  - [Server API](#server-api)
+  - [Server API Artificial Delays](#server-api-artificial-delays)
   - [Environment Variables](#environment-variables)
 
 ## About
@@ -321,11 +321,24 @@ This is to allow for a `layout.tsx` file in each directory similar to NextJS.
 You can read more about this
 [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
 
-### Server API
+### Server API Artificial Delays
 
 There is an artificial delay added in development mode to simulate API usage in
 real-world environments. You can disable this by removing the `timingMiddleware`
 in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
+
+### Better-Auth plugins
+
+When adding new plugins to better-auth, you should also update the `AuthClient`
+type definition. For example, when adding the [admin plugin](https://www.better-auth.com/docs/plugins/admin):
+
+```ts
+export type AuthClient = ReturnType<
+  typeof createBetterAuthClient<{ plugins: [ReturnType<typeof adminClient>] }>
+>;
+```
+
+The full code is available in the [better-auth-admin-plugin](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-plugin) branch.
 
 ### Environment Variables
 
