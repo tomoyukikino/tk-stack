@@ -79,9 +79,7 @@ The following features are implemented out-of-the-box:
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
-You can experiment with the deployed demo from the template starter code below:
-
-- https://nktnet1.github.io/rt-stack
+You can visit the [live demo](https://nktnet1.github.io/rt-stack) to see these features in action.
 
 ### Inspirations & Goals
 
@@ -257,6 +255,12 @@ details, see
 - [apps/web/nginx.conf](apps/web/nginx.conf)
 
 ## Deployment
+
+> [!TIP]
+> The [live demo](https://nktnet1.github.io/rt-stack) of RT Stack is currently deployed to
+>
+> - github pages for the web frontend
+> - fly.io for the server backend and postgres database
 
 ### Using Containers
 
