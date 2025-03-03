@@ -13,7 +13,7 @@
   </tr>
 </table>
 
-A modern [turborepo](https://turbo.build/repo/docs) template for building
+A modern & lightweight [turborepo](https://turbo.build/repo/docs) template for
 fullstack projects with modular components, shared configs, containerised
 deployments and 100% type-safety.
 
