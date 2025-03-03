@@ -210,7 +210,7 @@ All scripts are defined in [package.json](package.json) and
 [turbo.json](turbo.json):
 
 ```bash
-pnpm typecheck              # repot typescript isses
+pnpm typecheck              # report typescript issues
 
 pnpm format                 # report prettier issues
 pnpm format:fix             # auto-fix prettier issues
