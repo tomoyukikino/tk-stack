@@ -1,5 +1,18 @@
-import { MagnifyingGlassIcon, TrashIcon } from '@radix-ui/react-icons';
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  MagnifyingGlassIcon,
+  TrashIcon,
+} from '@radix-ui/react-icons';
+import { Button } from '@repo/ui/components/button';
 import { Input } from '@repo/ui/components/input';
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipArrow,
+  TooltipProvider,
+} from '@repo/ui/components/tooltip';
 import { useQuery } from '@tanstack/react-query';
 import {
   createFileRoute,
@@ -73,15 +86,17 @@ function RouteComponent() {
   };
 
   /**
-   * You could memoize posts, although if you use the react 19 compiler,
-   * it won't be necessary.
+   * You could memoize posts, although if you use the react 19 compiler
+   * (which RT-stack will in the future), it won't be necessary.
    */
   const lowercaseSearch = search.searchString.toLowerCase();
-  const filteredPost =
-    lowercaseSearch && posts
-      ? posts.filter((p) => p.title.toLowerCase().includes(lowercaseSearch))
-      : posts;
-
+  const filteredPost = posts
+    ?.filter((p) => p.title.toLowerCase().includes(lowercaseSearch))
+    .sort((a, b) =>
+      search.sortDirection === 'desc'
+        ? a.createdAt.getTime() - b.createdAt.getTime()
+        : b.createdAt.getTime() - a.createdAt.getTime(),
+    );
   return (
     <div className="flex flex-col md:p-4 w-full max-w-6xl mx-auto">
       <div className="flex items-center justify-between">
@@ -90,7 +105,39 @@ function RouteComponent() {
       </div>
       <hr className="mt-4 border-b-2 border-gray-400" />
 
-      <div className="mt-4 flex justify-end relative">
+      <div className="mt-4 flex justify-end items-center relative gap-x-2">
+        <TooltipProvider>
+          <Tooltip delayDuration={0}>
+            <TooltipTrigger asChild onClick={(e) => e.preventDefault()}>
+              <Button
+                variant="link"
+                className="w-12 border border-input hover:brightness-150"
+                onClick={() =>
+                  updateFilters(
+                    'sortDirection',
+                    search.sortDirection === 'asc' ? 'desc' : 'asc',
+                  )
+                }
+              >
+                {search.sortDirection === 'desc' ? (
+                  <ArrowDownIcon />
+                ) : (
+                  <ArrowUpIcon />
+                )}
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent
+              side="left"
+              align="center"
+              sideOffset={4}
+              onPointerDownOutside={(e) => e.preventDefault()}
+              className="bg-neutral-500 fill-neutral-500 duration-0"
+            >
+              <span>Sort by created date ({search.sortDirection})</span>
+              <TooltipArrow width={15} height={10} className="duration-0" />
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <div className="relative max-w-64 w-full">
           <Input
             value={search.searchString}
