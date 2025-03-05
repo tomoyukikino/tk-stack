@@ -58,9 +58,7 @@ const ProtectedPostsIndexRoute = ProtectedPostsIndexImport.update({
   id: '/posts/',
   path: '/posts/',
   getParentRoute: () => ProtectedLayoutRoute,
-} as any).lazy(() =>
-  import('./routes/_protected/posts/index.lazy').then((d) => d.Route),
-)
+} as any)
 
 const ProtectedPostsPostidIndexRoute = ProtectedPostsPostidIndexImport.update({
   id: '/posts/$postid/',

@@ -6,9 +6,15 @@ export const postsSearchSchema = v.object({
   sortDirection: v.fallback(v.picklist(['asc', 'desc']), 'asc'),
 });
 
+export type PostSearchSchema = v.InferOutput<typeof postsSearchSchema>;
+
 export const postsSearchDefaults = v.getFallbacks(postsSearchSchema);
 
 export const postsLinkOptions = linkOptions({
   to: '/posts',
-  search: postsSearchDefaults,
+
+  /**
+   * If we want links to contain default values in the URL
+   */
+  // search: postsSearchDefaults,
 });
