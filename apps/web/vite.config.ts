@@ -44,6 +44,7 @@ export default defineConfig({
   plugins: [
     TanStackRouterVite({
       routeToken: 'layout',
+      autoCodeSplitting: true,
     }),
     tailwindcss(),
     react(),
