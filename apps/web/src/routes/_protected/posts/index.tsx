@@ -93,7 +93,7 @@ function RouteComponent() {
   const filteredPost = posts
     ?.filter((p) => p.title.toLowerCase().includes(lowercaseSearch))
     .sort((a, b) =>
-      search.sortDirection === 'desc'
+      search.sortDirection === 'asc'
         ? a.createdAt.getTime() - b.createdAt.getTime()
         : b.createdAt.getTime() - a.createdAt.getTime(),
     );
@@ -119,10 +119,10 @@ function RouteComponent() {
                   )
                 }
               >
-                {search.sortDirection === 'desc' ? (
-                  <ArrowDownIcon />
-                ) : (
+                {search.sortDirection === 'asc' ? (
                   <ArrowUpIcon />
+                ) : (
+                  <ArrowDownIcon />
                 )}
               </Button>
             </TooltipTrigger>
