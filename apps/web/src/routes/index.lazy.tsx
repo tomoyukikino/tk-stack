@@ -15,14 +15,14 @@ function RouteComponent() {
 
   if (!session?.user) {
     return (
-      <div className="mt-3">
-        <p>
+      <div className="flex flex-col">
+        <div>
           Please{' '}
           <Link to="/login" className="underline font-bold">
             log in
           </Link>
           .
-        </p>
+        </div>
 
         <div className="mt-3 flex items-center gap-x-2">
           Toggle theme:
@@ -48,7 +48,7 @@ function RouteComponent() {
       <div>
         Welcome, <span className="font-bold">{session.user.name}</span>!
       </div>
-      <div className="mt-2 flex gap-x-1.5">
+      <div className="mt-3 flex gap-x-1.5">
         Click{' '}
         <Link
           {...postsLinkOptions}
