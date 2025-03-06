@@ -127,7 +127,7 @@ function RouteComponent() {
               </Button>
             </TooltipTrigger>
             <TooltipContent
-              side="left"
+              side="top"
               align="center"
               sideOffset={4}
               onPointerDownOutside={(e) => e.preventDefault()}
@@ -138,7 +138,7 @@ function RouteComponent() {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <div className="relative max-w-64 w-full">
+        <div className="relative sm:max-w-64 w-full">
           <Input
             value={search.searchString}
             onChange={(e) => updateFilters('searchString', e.target.value)}
