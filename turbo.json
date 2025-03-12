@@ -32,6 +32,9 @@
       "cache": false,
       "interactive": true
     },
+    "start": {
+      "dependsOn": ["^build"]
+    },
     "studio": {
       "cache": false,
       "persistent": true

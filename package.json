@@ -15,6 +15,7 @@
     "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
     "lint:fix": "pnpm lint --fix",
     "postclean": "git clean -xdf .cache .turbo node_modules",
+    "start": "turbo run start",
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add -F @repo/ui --"
   },

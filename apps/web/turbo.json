@@ -10,6 +10,10 @@
     "build": {
       "env": ["PUBLIC_*", "PROD"],
       "inputs": ["$TURBO_DEFAULT$", ".env"]
+    },
+    "start": {
+      "env": ["PUBLIC_*", "PROD"],
+      "persistent": true
     }
   }
 }
