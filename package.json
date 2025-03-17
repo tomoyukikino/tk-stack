@@ -19,7 +19,7 @@
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add -F @repo/ui --"
   },
-  "packageManager": "pnpm@10.6.2",
+  "packageManager": "pnpm@10.6.3",
   "prettier": "@repo/prettier-config",
   "devDependencies": {
     "@repo/prettier-config": "workspace:*",
@@ -27,8 +27,7 @@
     "turbo": "catalog:"
   },
   "engines": {
-    "node": ">=22.10.0",
-    "pnpm": "^10.4.1"
+    "node": ">=22.10.0"
   },
   "pnpm": {
     "overrides": {
