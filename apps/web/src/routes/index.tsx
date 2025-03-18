@@ -16,9 +16,9 @@ function RouteComponent() {
   return !session?.user ? (
     <div className="mt-1">
       <div>
-        This is the live demo for the{' '}
+        This is the live demo for{' '}
         <a
-          className="text-blue-500 underline"
+          className="text-blue-500 underline brightness-125"
           target="_blank"
           href="https://github.com/nktnet1/rt-stack"
           rel="noreferrer"
