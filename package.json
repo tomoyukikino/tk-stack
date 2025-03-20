@@ -3,6 +3,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "auth:schema:generate": "turbo run auth:schema:generate",
+    "postauth:schema:generate": "echo NOTE: you will also need to fix styles and db:push your new schema",
     "build": "turbo run build",
     "clean": "turbo run clean",
     "db:push": "turbo -F @repo/db push",

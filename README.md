@@ -209,6 +209,9 @@ All scripts are defined in [package.json](package.json) and
 [turbo.json](turbo.json):
 
 ```bash
+pnpm auth:schema:generate   # generate a new better-auth schema (e.g. when adding plugins)
+pnpm clean                  # remove all .cache, .turbo, dist, node_modules
+
 pnpm typecheck              # report typescript issues
 
 pnpm format                 # report prettier issues
@@ -216,8 +219,6 @@ pnpm format:fix             # auto-fix prettier issues
 
 pnpm lint                   # report eslint issues
 pnpm lint:fix               # auto-fix eslint issues
-
-pnpm clean                  # remove all .cache, .turbo, dist, node_modules
 
 pnpx codemod pnpm/catalog   # migrate dependencies to pnpm-workspace.yaml
 ```
