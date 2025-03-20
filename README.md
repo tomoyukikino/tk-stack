@@ -35,6 +35,7 @@ deployments and 100% type-safety.
   - [Using Major Platforms](#using-major-platforms)
 - [Other Notes](#other-notes)
   - [Tanstack Router Layout](#tanstack-router-layout)
+  - [Better Auth Plugins](#better-auth-plugins)
   - [Server API Artificial Delays](#server-api-artificial-delays)
   - [Environment Variables](#environment-variables)
 
@@ -335,6 +336,31 @@ TanStackRouterVite({
 This is to allow for a `layout.tsx` file in each directory similar to NextJS.
 You can read more about this
 [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
+
+### Better Auth Plugins
+
+When adding additional better-auth plugins, e.g.
+
+- [admin](https://better-auth.vercel.app/docs/plugins/admin)
+- [organization](https://better-auth.vercel.app/docs/plugins/organization)
+
+You should modify the auth package server and client files in accordance with the plugin's respective documentations
+
+Next, run the command:
+
+```bash
+pnpm auth:schema:generate
+```
+
+Press `i` to enter interactive mode, then `y` to overwrite [packages/db/src/schemas/auth.ts](packages/db/src/schemas/auth.ts).
+
+Finally, after formating and fixing all lint issues, run
+
+```bash
+pnpm db:push
+```
+
+You can find an example in the [better-auth-admin-organization-plugins branch](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-organization-plugins).
 
 ### Server API Artificial Delays
 
