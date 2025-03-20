@@ -3,6 +3,7 @@
   "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "lib": ["dom", "ES2022"]
+    "lib": ["dom", "ES2022"],
+    "baseUrl": "."
   }
 }
