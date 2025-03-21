@@ -16,7 +16,7 @@ import { authClient } from '@/clients/authClient';
 export default function UserAvatar({
   user,
 }: {
-  user: typeof authClient.$Infer.Session.user;
+  user: Readonly<typeof authClient.$Infer.Session.user>;
 }) {
   const { resolvedTheme, setTheme } = useTheme();
 
