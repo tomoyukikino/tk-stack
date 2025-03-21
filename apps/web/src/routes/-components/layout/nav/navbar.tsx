@@ -6,7 +6,7 @@ import { postsLinkOptions } from '@/validations/posts-link-options';
 
 const activeClassName = 'underline decoration-2 opacity-70';
 
-export function Navbar({ session }: { session: AuthSession }) {
+export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
   return (
     <NavContainer>
       <div className="flex gap-x-4">
