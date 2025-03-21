@@ -24,11 +24,9 @@ function RootComponent() {
 
   if (isPending) {
     return (
-      <>
-        <NavContainer>
-          <Spinner />
-        </NavContainer>
-      </>
+      <NavContainer>
+        <Spinner />
+      </NavContainer>
     );
   }
 
