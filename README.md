@@ -344,23 +344,42 @@ When adding additional better-auth plugins, e.g.
 - [admin](https://better-auth.vercel.app/docs/plugins/admin)
 - [organization](https://better-auth.vercel.app/docs/plugins/organization)
 
-You should modify the auth package server and client files in accordance with the plugin's respective documentations
+You should
 
-Next, run the command:
+1. Modify the auth package server and client files in accordance with the plugin's
+   respective documentations.
 
-```bash
-pnpm auth:schema:generate
-```
+2. Run the interactive command:
 
-Press `i` to enter interactive mode, then `y` to overwrite [packages/db/src/schemas/auth.ts](packages/db/src/schemas/auth.ts).
+   ```bash
+   pnpm auth:schema:generate
+   ```
 
-Finally, after formating and fixing all lint issues, run
+   Press `i` to enter interactive mode, then `y` to overwrite [packages/db/src/schemas/auth.ts](packages/db/src/schemas/auth.ts).
 
-```bash
-pnpm db:push
-```
+3. Format and fix all linting issues, e.g. with
 
-You can find an example in the [better-auth-admin-organization-plugins branch](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-organization-plugins).
+   ```bash
+   pnpm format:fix
+   pnpm lint:fix
+   ```
+
+4. Push your new schema to the database
+
+   ```bash
+   pnpm db:push
+   ```
+
+5. Occasionally, the type inference will not work immediately in your IDE (e.g. in VSCode).
+   This can be resolved by running
+
+   ```bash
+   pnpm clean && pnpm install
+   ```
+
+   followed by a restarting your TS Server or reloading VSCode.
+
+You can find an example in the [better-auth-admin-organization-plugins](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-organization-plugins) branch.
 
 ### Server API Artificial Delays
 
