@@ -40,8 +40,8 @@ RUN pnpm build
 
 FROM base AS production
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 hono
+RUN addgroup --system --gid 1001 nodejs \
+    && adduser --system --uid 1001 hono
 
 COPY --from=installer --chown=hono:nodejs /app/apps/server/dist /app/dist
 
