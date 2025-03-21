@@ -1,5 +1,4 @@
-import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { ReloadIcon } from '@radix-ui/react-icons';
+import { ArrowLeftIcon, ReloadIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 import {
   TooltipProvider,
@@ -8,8 +7,7 @@ import {
   TooltipContent,
   TooltipArrow,
 } from '@repo/ui/components/tooltip';
-import { Link } from '@tanstack/react-router';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { queryClient } from '@/clients/queryClient';
 import { trpc } from '@/router';
 import { postsLinkOptions } from '@/validations/posts-link-options';
