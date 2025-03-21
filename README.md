@@ -274,7 +274,7 @@ see this in action by running the commands:
 
 ```bash
 # Start all applications
-docker-compose up
+docker compose up --build
 
 # Push drizzle schema to your database - while you can use `pnpm db:push` on
 # the host machine if you have installed all the required dependencies, it is
