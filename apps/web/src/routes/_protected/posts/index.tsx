@@ -53,10 +53,10 @@ export const Route = createFileRoute('/_protected/posts/')({
 function PostItem({
   post,
   disabled,
-}: {
+}: Readonly<{
   post: inferRouterOutputs<AppRouter>['posts']['all'][number];
   disabled: boolean;
-}) {
+}>) {
   return (
     <Link
       to="/posts/$postid"

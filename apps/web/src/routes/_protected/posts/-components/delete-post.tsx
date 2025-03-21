@@ -17,11 +17,11 @@ export default function DeletePostButton({
   children,
   className,
   postId,
-}: {
+}: Readonly<{
   children: ReactNode;
   className?: string;
   postId: string;
-}) {
+}>) {
   const { refetch } = useQuery(trpc.posts.all.queryOptions());
 
   const deletePostMutation = useMutation(
