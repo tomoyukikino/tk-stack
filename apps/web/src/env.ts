@@ -1,6 +1,6 @@
 import * as v from 'valibot';
 
-export const CLIENT_ENV_PREFIX = 'PUBLIC_' as const;
+export const CLIENT_ENV_PREFIX = 'PUBLIC_';
 
 export const envSchema = v.object({
   /**
