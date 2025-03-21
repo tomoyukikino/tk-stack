@@ -28,6 +28,7 @@ deployments and 100% type-safety.
 - [Developing](#developing)
   - [Working with a single package](#working-with-a-single-package)
   - [Adding new shadcn components](#adding-new-shadcn-components)
+  - [Adding new better-auth plugins](#adding-new-better-auth-plugins)
   - [Tooling Scripts](#tooling-scripts)
 - [Containerisation (Docker/Podman)](#containerisation-dockerpodman)
 - [Deployment](#deployment)
@@ -35,7 +36,6 @@ deployments and 100% type-safety.
   - [Using Major Platforms](#using-major-platforms)
 - [Other Notes](#other-notes)
   - [Tanstack Router Layout](#tanstack-router-layout)
-  - [Better Auth Plugins](#better-auth-plugins)
   - [Server API Artificial Delays](#server-api-artificial-delays)
   - [Environment Variables](#environment-variables)
 
@@ -204,13 +204,56 @@ pnpm ui-add
 - use `<Space>` to toggle select your desired component(s)
 - hit `<Enter>` to install all selected components
 
+### Adding new better-auth plugins
+
+When integrating more better-auth plugins, e.g.
+
+- [admin](https://better-auth.vercel.app/docs/plugins/admin)
+- [organization](https://better-auth.vercel.app/docs/plugins/organization)
+
+You should
+
+1. Modify the auth package server and client files in accordance with the plugin's
+   respective documentations.
+
+2. Run the interactive command:
+
+   ```bash
+   pnpm auth:schema:generate
+   ```
+
+   Press `i` to enter interactive mode, then `y` to overwrite [packages/db/src/schemas/auth.ts](packages/db/src/schemas/auth.ts).
+
+3. Format and fix all linting issues, e.g. with
+
+   ```bash
+   pnpm format:fix
+   pnpm lint:fix
+   ```
+
+4. Push your new schema to the database
+
+   ```bash
+   pnpm db:push
+   ```
+
+5. Occasionally, the type inference will not work immediately in your IDE (e.g. in VSCode).
+   This can be resolved by running
+
+   ```bash
+   pnpm clean && pnpm install
+   ```
+
+   followed by a restarting your TS Server or reloading VSCode.
+
+You can find an example in the [better-auth-admin-organization-plugins](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-organization-plugins) branch.
+
 ### Tooling Scripts
 
 All scripts are defined in [package.json](package.json) and
 [turbo.json](turbo.json):
 
 ```bash
-pnpm auth:schema:generate   # generate a new better-auth schema (e.g. when adding plugins)
 pnpm clean                  # remove all .cache, .turbo, dist, node_modules
 
 pnpm typecheck              # report typescript issues
@@ -336,50 +379,6 @@ TanStackRouterVite({
 This is to allow for a `layout.tsx` file in each directory similar to NextJS.
 You can read more about this
 [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
-
-### Better Auth Plugins
-
-When adding additional better-auth plugins, e.g.
-
-- [admin](https://better-auth.vercel.app/docs/plugins/admin)
-- [organization](https://better-auth.vercel.app/docs/plugins/organization)
-
-You should
-
-1. Modify the auth package server and client files in accordance with the plugin's
-   respective documentations.
-
-2. Run the interactive command:
-
-   ```bash
-   pnpm auth:schema:generate
-   ```
-
-   Press `i` to enter interactive mode, then `y` to overwrite [packages/db/src/schemas/auth.ts](packages/db/src/schemas/auth.ts).
-
-3. Format and fix all linting issues, e.g. with
-
-   ```bash
-   pnpm format:fix
-   pnpm lint:fix
-   ```
-
-4. Push your new schema to the database
-
-   ```bash
-   pnpm db:push
-   ```
-
-5. Occasionally, the type inference will not work immediately in your IDE (e.g. in VSCode).
-   This can be resolved by running
-
-   ```bash
-   pnpm clean && pnpm install
-   ```
-
-   followed by a restarting your TS Server or reloading VSCode.
-
-You can find an example in the [better-auth-admin-organization-plugins](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-organization-plugins) branch.
 
 ### Server API Artificial Delays
 
