@@ -280,7 +280,7 @@ docker compose up --build
 # the host machine if you have installed all the required dependencies, it is
 # also possible to do everything within docker.
 # Open a second terminal and run the command:
-docker compose run --rm drizzle
+docker compose run --build --rm drizzle
 
 # Upon completion, you will be inside the `drizzle` docker container instead
 # of the host machine. It is now possible to push the schema with:
