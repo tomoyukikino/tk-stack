@@ -32,16 +32,18 @@ export const router = t.router;
 
 const timingMiddleware = t.middleware(async ({ next, path }) => {
   const start = Date.now();
-  let waitMs = 0;
+  let waitMsDisplay = '';
   if (t._config.isDev) {
     // artificial delay in dev 100-500ms
-    waitMs = Math.floor(Math.random() * 400) + 100;
+    const waitMs = Math.floor(Math.random() * 400) + 100;
     await new Promise((resolve) => setTimeout(resolve, waitMs));
+    waitMsDisplay = ` (artificial delay: ${waitMs}ms)`;
   }
   const result = await next();
   const end = Date.now();
+
   console.log(
-    `\t[TRPC] /${path} executed after ${end - start}ms${waitMs > 0 ? ` (artificial delay: ${waitMs}ms)` : ''}`,
+    `\t[TRPC] /${path} executed after ${end - start}ms${waitMsDisplay}`,
   );
   return result;
 });
