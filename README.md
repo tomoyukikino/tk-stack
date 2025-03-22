@@ -35,7 +35,7 @@ deployments and 100% type-safety.
   - [Using Containers](#using-containers)
   - [Using Major Platforms](#using-major-platforms)
 - [Other Notes](#other-notes)
-  - [Tanstack Router Layout](#tanstack-router-layout)
+  - [Tanstack Router](#tanstack-router)
   - [Server API Artificial Delays](#server-api-artificial-delays)
   - [Environment Variables](#environment-variables)
 
@@ -365,7 +365,7 @@ backend hosted at `api.example.com`.
 
 ## Other Notes
 
-### Tanstack Router Layout
+### Tanstack Router
 
 The following is configured in [vite.config.ts](apps/web/vite.config.ts) web
 application:
@@ -379,6 +379,24 @@ TanStackRouterVite({
 This is to allow for a `layout.tsx` file in each directory similar to NextJS.
 You can read more about this
 [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
+
+Also, it is recommended that you exclude the `routerTree.gen.ts` from your IDE.
+For example, in VSCode, you can add the following `.vscode/settings.json` at the
+root of your turborepo:
+
+```json
+{
+  "files.readonlyInclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "files.watcherExclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "search.exclude": {
+    "**/routeTree.gen.ts": true
+  }
+}
+```
 
 ### Server API Artificial Delays
 
