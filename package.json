@@ -37,9 +37,13 @@
       "cookie@<0.7.0": "^0.7.0",
       "esbuild@<0.25.0": "^0.25.0"
     },
+    "onlyBuiltDependencies": [],
     "ignoredBuiltDependencies": [
       "@swc/core",
-      "esbuild"
+      "esbuild",
+      "prettier",
+      "turbo",
+      "turbo-linux-64"
     ]
   }
 }
