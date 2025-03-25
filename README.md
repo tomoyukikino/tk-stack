@@ -143,7 +143,7 @@ You can then start all applications with
 pnpm dev
 ```
 
-By default the following URLs will be accessibile:
+By default the following URLs will be accessible:
 
 - web application: http://localhost:8085
 - backend server: http://localhost:3035
