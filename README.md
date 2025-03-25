@@ -57,9 +57,9 @@ packages
   ├─ api
   |   └─ trpc with valibot
   ├─ auth
-  |   └─ better auth
+  |   └─ better-auth
   ├─ db
-  |   └─ drizzle orm (postgresql database)
+  |   └─ drizzle-orm (postgres database)
   ├─ ui
   |   ├─ tailwindcss
   |   └─ shadcn & radix ui
@@ -94,8 +94,7 @@ there is a preference for:
 - [tanstack form](https://tanstack.com/form/latest) instead of [react-hook-form](https://react-hook-form.com)
 - using `.env` in each application/package instead of globally, as per [turborepo's recommendations](https://turbo.build/repo/docs/crafting-your-repository/using-environment-variables#best-practices)
 
-Additionally, the aim of this project is to always adopting the latest releases
-of dependencies and tools. For example:
+This project also aims to consistently adopt the latest releases of dependencies and tools. For example:
 
 - react v19
 - tailwindcss v4 & shadcn-ui (canary)
@@ -134,7 +133,7 @@ pnpm env:copy-example
 # Start a local postgres instance in the background (e.g. using docker)
 docker compose up db --detach
 
-# Push drizzle schema to your database
+# Push the drizzle schema to your database
 pnpm db:push
 ```
 
@@ -144,7 +143,7 @@ You can then start all applications with
 pnpm dev
 ```
 
-By default the following URLs will be accesibile:
+By default the following URLs will be accessibile:
 
 - web application: http://localhost:8085
 - backend server: http://localhost:3035
@@ -276,9 +275,9 @@ see this in action by running the commands:
 # Start all applications
 docker compose up --build
 
-# Push drizzle schema to your database - while you can use `pnpm db:push` on
+# Push the drizzle schema to your database. While you can use `pnpm db:push` on
 # the host machine if you have installed all the required dependencies, it is
-# also possible to do everything within docker.
+# also possible to do everything within docker alone.
 # Open a second terminal and run the command:
 docker compose run --build --rm drizzle
 
@@ -358,7 +357,7 @@ domains, you will need to [tweak your better-auth configurations](https://www.be
 Apple's Safari browser also does not support third party cookies, so auth will
 not function as expected without any proxy workarounds.
 
-To keep things simple, it is recommendeded that you host your frontend and
+To keep things simple, it is recommended that you host your frontend and
 backend on the same root domain and differ by subdomains. For example, the
 frontend can be served at either `example.com` or `web.example.com`, and the
 backend hosted at `api.example.com`.
@@ -376,7 +375,7 @@ TanStackRouterVite({
 }),
 ```
 
-This is to allow for a `layout.tsx` file in each directory similar to NextJS.
+This enables the use of a `layout.tsx` file in each directory similar to NextJS.
 You can read more about this
 [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
 
@@ -420,7 +419,7 @@ In using this template, it is recommended that
    instantiate rather than consuming environment variables directly
    - one exception is the `@repo/db` package, which requires the
      `DB_POSTGRES_URL` variable for schema migration with `pnpm db:push`
-1. environent variables are prefixed, e.g. `SERVER_AUTH_SECRET` instead of
+1. environment variables are prefixed, e.g. `SERVER_AUTH_SECRET` instead of
    `AUTH_SECRET`. Caching in the app's `turbo.json` can then be configured to
    use wildcards such as:
    ```json
