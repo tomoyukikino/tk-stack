@@ -17,14 +17,14 @@ catalog:
   '@tailwindcss/vite': ^4.0.17
   '@tanstack/react-form': ^1.1.2
   '@tanstack/react-query': ^5.69.0
-  '@tanstack/react-router': ^1.114.27
-  '@tanstack/router-devtools': ^1.114.27
-  '@tanstack/router-plugin': ^1.114.27
+  '@tanstack/react-router': ^1.114.29
+  '@tanstack/router-devtools': ^1.114.29
+  '@tanstack/router-plugin': ^1.114.29
   '@trpc/client': ^11.0.0
   '@trpc/server': ^11.0.0
   '@trpc/tanstack-react-query': ^11.0.0
   '@types/eslint-config-prettier': ^6.11.3
-  '@types/node': ^22.13.13
+  '@types/node': ^22.13.14
   '@types/pg': ^8.11.11
   '@types/react': ^19.0.12
   '@types/react-dom': ^19.0.4
@@ -32,7 +32,7 @@ catalog:
   better-auth: ^1.2.5
   class-variance-authority: ^0.7.1
   dotenv-cli: ^8.0.0
-  drizzle-kit: ^0.30.5
+  drizzle-kit: ^0.30.6
   drizzle-orm: ^0.41.0
   drizzle-valibot: ^0.4.0
   eslint: ^9.23.0
@@ -52,7 +52,7 @@ catalog:
   react: ^19.0.0
   react-dom: ^19.0.0
   shx: ^0.4.0
-  sonner: ^2.0.1
+  sonner: ^2.0.2
   superjson: ^2.2.2
   tailwind-merge: ^3.0.2
   tailwindcss: ^4.0.17
