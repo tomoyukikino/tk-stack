@@ -68,8 +68,8 @@ services:
       - DB_POSTGRES_URL=postgres://postgres:postgres@db:5432/postgres
       - TURBO_UI=true
     profiles:
-      # Using profile to avoid starting this container this by default.
-      # We only want to use this for pnpm db:push to apply the schema
+      # Using profiles to avoid starting this container by default.
+      # We only use this to run `pnpm db:push`
       - drizzle
 
 volumes:
