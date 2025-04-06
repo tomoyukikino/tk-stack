@@ -7,7 +7,7 @@
     </td>
     <td>
       <h1>
-        <a href="https://rtstack.nktnet.uk" target="_blank">RT Stack</a>
+        <a href="https://rtstack.nktnet.uk" target="_blank">TK Stack</a>
       </h1>
     </td>
   </tr>
@@ -145,8 +145,8 @@ pnpm dev
 
 By default the following URLs will be accessible:
 
-- web application: http://localhost:8085
-- backend server: http://localhost:3035
+- web application: <http://localhost:8085>
+- backend server: <http://localhost:3035>
 
 ### Using an External Database
 
@@ -288,7 +288,7 @@ pnpm db:push
 
 You can then open the web link below in your browser:
 
-- http://localhost:8085
+- <http://localhost:8085>
 
 Please note that these containers are run in production mode. For further
 details, see
@@ -324,11 +324,11 @@ and make use of self-hostable PaaS software which automatically handles the comp
 mentioned above for you - these includes:
 
 - Coolify
-  - https://github.com/coollabsio/coolify
-  - https://www.coolify.io
+  - <https://github.com/coollabsio/coolify>
+  - <https://www.coolify.io>
 - Dokploy
-  - https://github.com/Dokploy/dokploy
-  - http://dokploy.com
+  - <https://github.com/Dokploy/dokploy>
+  - <http://dokploy.com>
 
 Do note that for the **web** application, the `PUBLIC_SERVER_URL` variable
 available at build time (as a docker build argument), rather than an environment
@@ -422,6 +422,7 @@ In using this template, it is recommended that
 1. environment variables are prefixed, e.g. `SERVER_AUTH_SECRET` instead of
    `AUTH_SECRET`. Caching in the app's `turbo.json` can then be configured to
    use wildcards such as:
+
    ```json
    "tasks": {
       "build": {

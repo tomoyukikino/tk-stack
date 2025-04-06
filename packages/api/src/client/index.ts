@@ -1,10 +1,10 @@
-import { createTRPCClient, httpBatchLink } from '@trpc/client';
-import SuperJSON from 'superjson';
-import urlJoin from 'url-join';
-import type { AppRouter } from '../server';
+import { createTRPCClient, httpBatchLink } from '@trpc/client'
+import SuperJSON from 'superjson'
+import urlJoin from 'url-join'
+import type { AppRouter } from '../server'
 
 export interface APIClientOptions {
-  serverUrl: string;
+  serverUrl: string
 }
 
 export const createTrpcClient = ({ serverUrl }: APIClientOptions) => {
@@ -23,9 +23,9 @@ export const createTrpcClient = ({ serverUrl }: APIClientOptions) => {
              * and backend (server) on two different domains.
              */
             credentials: 'include',
-          });
+          })
         },
       }),
     ],
-  });
-};
+  })
+}
