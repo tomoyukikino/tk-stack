@@ -1,9 +1,9 @@
-import { pgTable } from 'drizzle-orm/pg-core';
-import { createInsertSchema } from 'drizzle-valibot';
-import * as v from 'valibot';
-import { user } from './auth';
+import { pgTable } from 'drizzle-orm/pg-core'
+import { createInsertSchema } from 'drizzle-valibot'
+import * as v from 'valibot'
+import { user } from './auth'
 
-export const post = pgTable('post', (t) => ({
+export const post = pgTable('post', t => ({
   id: t.uuid().notNull().primaryKey().defaultRandom(),
   title: t.varchar({ length: 256 }).notNull(),
   content: t.text().notNull(),
@@ -12,7 +12,7 @@ export const post = pgTable('post', (t) => ({
     .text()
     .references(() => user.id)
     .notNull(),
-}));
+}))
 
 export const CreatePostSchema = v.omit(
   createInsertSchema(post, {
@@ -20,4 +20,4 @@ export const CreatePostSchema = v.omit(
     content: v.pipe(v.string(), v.maxLength(512)),
   }),
   ['id', 'createdAt', 'createdBy'],
-);
+)

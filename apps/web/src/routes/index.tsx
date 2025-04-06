@@ -1,17 +1,17 @@
-import { Link2Icon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import { Button } from '@repo/ui/components/button';
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { useTheme } from 'next-themes';
-import { authClient } from '@/clients/authClient';
-import { postsLinkOptions } from '@/validations/posts-link-options';
+import { Link2Icon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
+import { Button } from '@repo/ui/components/button'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { useTheme } from 'next-themes'
+import { authClient } from '@/clients/authClient'
+import { postsLinkOptions } from '@/validations/posts-link-options'
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,
-});
+})
 
 function RouteComponent() {
-  const { data: session } = authClient.useSession();
-  const { resolvedTheme, setTheme } = useTheme();
+  const { data: session } = authClient.useSession()
+  const { resolvedTheme, setTheme } = useTheme()
 
   return !session?.user ? (
     <div className="mt-1">
@@ -42,11 +42,7 @@ function RouteComponent() {
           variant="ghost"
           onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
         >
-          {resolvedTheme === 'dark' ? (
-            <MoonIcon className="text-yellow-300" />
-          ) : (
-            <SunIcon className="text-red-600" />
-          )}
+          {resolvedTheme === 'dark' ? <MoonIcon className="text-yellow-300" /> : <SunIcon className="text-red-600" />}
         </Button>
       </div>
     </div>
@@ -57,10 +53,7 @@ function RouteComponent() {
       </div>
       <div className="mt-3 flex gap-x-1.5">
         Click{' '}
-        <Link
-          {...postsLinkOptions}
-          className="flex items-center gap-x-1 text-blue-500 underline"
-        >
+        <Link {...postsLinkOptions} className="flex items-center gap-x-1 text-blue-500 underline">
           here <Link2Icon className="mt-0.5" />
         </Link>{' '}
         to view your posts.
@@ -78,5 +71,5 @@ function RouteComponent() {
         .
       </div>
     </div>
-  );
+  )
 }

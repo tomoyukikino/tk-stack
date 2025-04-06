@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: ['./src/index.ts'],
@@ -19,7 +19,7 @@ export default defineConfig({
     if (format === 'esm')
       return {
         js: `import { createRequire } from 'module'; const require = createRequire(import.meta.url);`,
-      };
-    return {};
+      }
+    return {}
   },
-});
+})

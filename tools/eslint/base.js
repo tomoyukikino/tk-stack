@@ -1,12 +1,12 @@
 /// <reference types="./types.d.ts" />
 
-import js from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import turboConfig from 'eslint-config-turbo/flat';
-import eslintPluginImport from 'eslint-plugin-import';
-import turboPlugin from 'eslint-plugin-turbo';
-import tseslint from 'typescript-eslint';
-import onlyWarn from 'eslint-plugin-only-warn';
+import js from '@eslint/js'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import turboConfig from 'eslint-config-turbo/flat'
+import eslintPluginImport from 'eslint-plugin-import'
+import turboPlugin from 'eslint-plugin-turbo'
+import tseslint from 'typescript-eslint'
+import onlyWarn from 'eslint-plugin-only-warn'
 
 export const restrictEnvAccess = tseslint.config(
   { ignores: ['**/env.ts', 'dist/**'] },
@@ -33,7 +33,7 @@ export const restrictEnvAccess = tseslint.config(
       ],
     },
   },
-);
+)
 
 export default tseslint.config([
   { ignores: ['dist/**'] },
@@ -63,16 +63,7 @@ export default tseslint.config([
       'import/order': [
         'warn',
         {
-          groups: [
-            'builtin',
-            'external',
-            'type',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
-            'object',
-          ],
+          groups: ['builtin', 'external', 'type', 'internal', 'parent', 'sibling', 'index', 'object'],
           alphabetize: {
             order: 'asc',
           },
@@ -85,4 +76,4 @@ export default tseslint.config([
       semi: ['error', 'always'],
     },
   },
-]);
+])

@@ -1,7 +1,4 @@
 {
   "files": [],
-  "references": [
-    { "path": "./tsconfig.package.json" },
-    { "path": "./tsconfig.drizzlekit.json" }
-  ]
+  "references": [{ "path": "./tsconfig.package.json" }, { "path": "./tsconfig.drizzlekit.json" }]
 }

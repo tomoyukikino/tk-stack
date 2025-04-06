@@ -2,8 +2,11 @@
 
 /** @type { PrettierConfig } */
 const config = {
-  plugins: [],
+  arrowParens: 'avoid',
+  printWidth: 120,
   singleQuote: true,
-};
+  semi: false,
+  plugins: [],
+}
 
-export default config;
+export default config

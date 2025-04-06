@@ -1,22 +1,13 @@
-import { ArrowLeftIcon, ReloadIcon } from '@radix-ui/react-icons';
-import { Button } from '@repo/ui/components/button';
-import {
-  TooltipProvider,
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipArrow,
-} from '@repo/ui/components/tooltip';
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { queryClient } from '@/clients/queryClient';
-import { trpc } from '@/router';
-import { postsLinkOptions } from '@/validations/posts-link-options';
+import { ArrowLeftIcon, ReloadIcon } from '@radix-ui/react-icons'
+import { Button } from '@repo/ui/components/button'
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent, TooltipArrow } from '@repo/ui/components/tooltip'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { queryClient } from '@/clients/queryClient'
+import { trpc } from '@/router'
+import { postsLinkOptions } from '@/validations/posts-link-options'
 
 export const Route = createFileRoute('/_protected/posts/$postid/')({
-  loader: ({ params }) =>
-    queryClient.ensureQueryData(
-      trpc.posts.one.queryOptions({ id: params.postid }),
-    ),
+  loader: ({ params }) => queryClient.ensureQueryData(trpc.posts.one.queryOptions({ id: params.postid })),
   component: RouteComponent,
   errorComponent: ({ error, reset }) => {
     return (
@@ -33,7 +24,7 @@ export const Route = createFileRoute('/_protected/posts/$postid/')({
             variant="secondary"
             onClick={() => {
               // Reset the router error boundary
-              reset();
+              reset()
             }}
             className="w-full"
           >
@@ -41,20 +32,19 @@ export const Route = createFileRoute('/_protected/posts/$postid/')({
           </Button>
         </div>
       </div>
-    );
+    )
   },
-});
+})
 
 function RouteComponent() {
-  const post = Route.useLoaderData();
+  const post = Route.useLoaderData()
 
   return (
     <div className="flex flex-col px-4 w-full max-w-6xl mx-auto break-words">
       <div className="text-center p-5 rounded-2xl">
         <h1 className="text-2xl md:text-4xl font-bold">{post.title}</h1>
         <p className="text-sm text-gray-500 mt-2">
-          Created by <span className="font-medium">{post.author.name}</span>,{' '}
-          {post.createdAt.toLocaleString()}
+          Created by <span className="font-medium">{post.author.name}</span>, {post.createdAt.toLocaleString()}
         </p>
       </div>
       <hr className="border border-gray-500 mt-3" />
@@ -62,11 +52,7 @@ function RouteComponent() {
       <TooltipProvider delayDuration={0}>
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button
-              asChild
-              variant="link"
-              className="w-12 border border-gray-500 mt-6 hover:brightness-150"
-            >
+            <Button asChild variant="link" className="w-12 border border-gray-500 mt-6 hover:brightness-150">
               <Link {...postsLinkOptions}>
                 <ArrowLeftIcon />
               </Link>
@@ -85,10 +71,8 @@ function RouteComponent() {
       </TooltipProvider>
 
       <div className="bg-elevated shadow rounded-2xl p-6 w-full min-h-96 border border-gray-500 break-words mt-6">
-        <p className="leading-relaxed whitespace-break-spaces">
-          {post.content ?? 'No content available.'}
-        </p>
+        <p className="leading-relaxed whitespace-break-spaces">{post.content ?? 'No content available.'}</p>
       </div>
     </div>
-  );
+  )
 }

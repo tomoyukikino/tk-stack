@@ -1,5 +1,5 @@
-import { createDb } from '@repo/db/client';
-import { createAuth } from './server';
+import { createDb } from '@repo/db/client'
+import { createAuth } from './server'
 
 /**
  * @internal
@@ -18,4 +18,4 @@ export const auth = createAuth({
   db: createDb({
     databaseUrl: '',
   }),
-});
+})

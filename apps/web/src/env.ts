@@ -1,6 +1,6 @@
-import * as v from 'valibot';
+import * as v from 'valibot'
 
-export const CLIENT_ENV_PREFIX = 'PUBLIC_';
+export const CLIENT_ENV_PREFIX = 'PUBLIC_'
 
 export const envSchema = v.object({
   /**
@@ -14,6 +14,6 @@ export const envSchema = v.object({
    * usually required for deploying a repository to Github/Gitlab pages.
    */
   PUBLIC_BASE_PATH: v.pipe(v.optional(v.string(), '/'), v.startsWith('/')),
-});
+})
 
-export const env = v.parse(envSchema, import.meta.env);
+export const env = v.parse(envSchema, import.meta.env)
