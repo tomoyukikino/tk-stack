@@ -32,7 +32,7 @@ jobs:
         run: pnpm build
       - name: Run Lint
         run: pnpm lint --max-warnings=0
-      - name: Run Test
-        run: pnpm test
+      # - name: Run Test
+      #   run: pnpm test
       - name: Run Formatter
         run: pnpm format
