@@ -13,9 +13,8 @@
   </tr>
 </table>
 
-A modern & lightweight [turborepo](https://turbo.build/repo/docs) template for
-fullstack projects with modular components, shared configs, containerised
-deployments and 100% type-safety.
+モダンで軽量な [turborepo](https://turbo.build/repo/docs) テンプレート  
+モジュール化されたコンポーネント、共通設定、コンテナ化されたデプロイ、100% 型安全なフルスタックプロジェクト  
 
 - [About](#about)
   - [Stack overview](#stack-overview)
@@ -43,7 +42,7 @@ deployments and 100% type-safety.
 
 ### Stack overview
 
-Below is an overview of all the components in the stack:
+以下はスタックのすべてのコンポーネントの概要です:
 
 ```
 apps
@@ -70,23 +69,21 @@ tools
   └─ typescript
 ```
 
-View all catalog dependencies in [pnpm-workspace.yaml](pnpm-workspace.yaml).
+[pnpm-workspace.yaml](pnpm-workspace.yaml) ですべてのカタログ依存関係を確認できます。
 
-### Base Functionalities
+### 基本的な機能
 
-The following features are implemented out-of-the-box:
+以下の機能はデフォルトで実装されています:
 
-- login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password)) credentials provider
-- themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
-- web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
+- ログイン/登録 (使用 [better-auth の電子メール/パスワード](https://www.better-auth.com/docs/authentication/email-password) 認証プロバイダー)
+- テーマ (ダーク/ライトモード使用 [next-themes](github.com/pacocoursey/next-themes))
+- web/server 統合 ([trpc](https://trpc.io/docs/quickstart) API 例: 投稿の作成/一覧表示)
 
-You can visit the [live demo](https://rtstack.nktnet.uk) to see these features in action.
+[live demo](https://rtstack.nktnet.uk) でこれらの機能を確認できます。
 
-### Inspirations & Goals
+### インスピレーションと目標
 
-Many aspects of the RT Stack were derived from the
-[t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). However,
-there is a preference for:
+TK Stack の多くの側面は [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo) から派生しています。ただし、以下の優先事項があります:
 
 - [tanstack router](https://tanstack.com/router/latest) (web) + [hono](https://hono.dev) (server) instead of [nextjs](https://nextjs.org) (fullstack)
 - [better auth](https://www.better-auth.com) for authentication instead [auth.js (next auth)](https://authjs.dev)
@@ -94,7 +91,7 @@ there is a preference for:
 - [tanstack form](https://tanstack.com/form/latest) instead of [react-hook-form](https://react-hook-form.com)
 - using `.env` in each application/package instead of globally, as per [turborepo's recommendations](https://turbo.build/repo/docs/crafting-your-repository/using-environment-variables#best-practices)
 
-This project also aims to consistently adopt the latest releases of dependencies and tools. For example:
+このプロジェクトは、依存関係とツールの最新リリースを一貫して採用することを目指しています。例えば:
 
 - react v19
 - tailwindcss v4 & shadcn-ui (canary)
@@ -106,11 +103,11 @@ This project also aims to consistently adopt the latest releases of dependencies
 
 ### Prerequisites
 
-Ensure the following tools are available on your system:
+以下のツールがシステムにインストールされていることを確認してください:
 
-1. [node](https://nodejs.org/en/download) (version 22+)
-1. [pnpm](https://pnpm.io/installation) (version 10+)
-1. [postgres](https://www.postgresql.org) database, which you can easily run using tools like:
+1. [node](https://nodejs.org/en/download) (バージョン 22+)
+1. [pnpm](https://pnpm.io/installation) (バージョン 10+)
+1. [postgres](https://www.postgresql.org) データベース, 以下のツールを使用して簡単に実行できます:
    - [docker](https://docs.docker.com/engine/install) and [docker-compose](https://docs.docker.com/compose)
    - [podman](https://podman.io/docs/installation) and [podman-compose](https://github.com/containers/podman-compose)
    - [supabase](https://supabase.com)'s free tier cloud database
@@ -137,48 +134,48 @@ docker compose up db --detach
 pnpm db:push
 ```
 
-You can then start all applications with
+すべてのアプリケーションを開始できます
 
 ```bash
 pnpm dev
 ```
 
-By default the following URLs will be accessible:
+デフォルトでは以下の URL にアクセスできます:
 
-- web application: <http://localhost:8085>
-- backend server: <http://localhost:3035>
+- web アプリケーション: <http://localhost:8085>
+- バックエンドサーバー: <http://localhost:3035>
 
-### Using an External Database
+### 外部データベースの使用
 
-When using an external postgres database (e.g. from [supabase](https://supabase.com)), you can skip the step that spins up a local postgres instance with docker.
+[supabase](https://supabase.com) などの外部 postgres データベースを使用する場合、ローカル postgres インスタンスを起動する手順をスキップできます。
 
-Instead, you will need to modify the following environment variables:
+代わりに、次の環境変数を変更する必要があります:
 
-1. `SERVER_POSTGRES_URL` in the file `apps/server/.env`
+1. ファイル `apps/server/.env` の `SERVER_POSTGRES_URL`
 
    - used at runtime by the backend server in `pnpm dev`
 
-1. `DB_POSTGRES_URL` in the file `packages/db/.env`
-   - used in database schema migrations with `pnpm db:push`
+1. ファイル `packages/db/.env` の `DB_POSTGRES_URL`
+   - `pnpm db:push` でデータベーススキーマの移行に使用されます
 
-## Developing
+## 開発
 
-### Working with a single package
+### 単一のパッケージの操作
 
-Use [`pnpm --filter=<name>`](https://pnpm.io/filtering) (where `<name>` is
-defined in the `package.json` of each package).
+[`pnpm --filter=<name>`](https://pnpm.io/filtering) (where `<name>` is
+定義されている `package.json` の各パッケージ)。
 
-Example usage:
+例:
 
 ```bash
-# Install the nuqs package for our web application:
+# ウェブアプリケーションの nuqs パッケージをインストールします:
 pnpm --filter=web install nuqs
 
 # Format only the ui package:
 pnpm --filter=@repo/ui format
 ```
 
-You can get a list of all package names using the command below:
+以下のコマンドを使用して、すべてのパッケージ名を取得できます:
 
 ```bash
 find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
@@ -186,13 +183,13 @@ find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
 
 ### Adding new shadcn components
 
-To install a single Shadcn/UI component, e.g. `button`, use the command
+単一の Shadcn/UI コンポーネントをインストールするには、例えば `button` を使用して次のコマンドを実行します:
 
 ```bash
 pnpm ui-add button
 ```
 
-You can also open an interactive session to select components using a TUI by not passing any arguments
+引数を指定せずに TUI を使用してコンポーネントを選択することもできます:
 
 ```bash
 pnpm ui-add
@@ -203,14 +200,14 @@ pnpm ui-add
 - use `<Space>` to toggle select your desired component(s)
 - hit `<Enter>` to install all selected components
 
-### Adding new better-auth plugins
+### 新しい better-auth プラグインの追加
 
-When integrating more better-auth plugins, e.g.
+better-auth プラグインを統合する場合、例えば
 
 - [admin](https://better-auth.vercel.app/docs/plugins/admin)
 - [organization](https://better-auth.vercel.app/docs/plugins/organization)
 
-You should
+次のようにします:
 
 1. Modify the auth package server and client files in accordance with the plugin's
    respective documentations.

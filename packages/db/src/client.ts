@@ -16,4 +16,4 @@ export const createDb = ({ databaseUrl }: DatabaseClientOptions): DatabaseInstan
       connectionString: databaseUrl,
     },
   })
-}
+};
