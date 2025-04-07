@@ -1,0 +1,38 @@
+name: Build, Lint and Test
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/api/**'
+      - 'packages/**/**'
+      - 'tools/**/**'
+jobs:
+  verify:
+    name: Build, Lint and Test
+    runs-on: ubuntu-latest
+    environment: dev
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Build APP app
+        run: pnpm build
+      - name: Run Lint
+        run: pnpm lint:fix && pnpm lint --max-warnings=0
+      # - name: Run Test
+      #   run: pnpm test
+      - name: Run Formatter
+        run: pnpm format

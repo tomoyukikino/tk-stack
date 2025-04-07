@@ -1,0 +1,34 @@
+name: DEV:AWS API Server deploy
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/api/**'
+      - 'packages/**/**'
+      - 'tools/**/**'
+# TODO: 未実装
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HOGE_FUGA: hogefuga
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Build server
+        run: pnpm build --filter=server
+      - name: Deploy to AWS
+        run: echo 'deploy to AWS...'
