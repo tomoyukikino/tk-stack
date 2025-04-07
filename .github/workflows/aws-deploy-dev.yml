@@ -1,4 +1,4 @@
-name: DEV:AWS API deploy
+name: DEV:AWS API Server deploy
 
 on:
   pull_request:
@@ -28,8 +28,7 @@ jobs:
           cache: 'pnpm'
       - name: Install Dependencies
         run: pnpm install
-      - name: Build api
-        working-directory: apps/server
-        run: pnpm build
+      - name: Build server
+        run: pnpm build --filter=server
       - name: Deploy to AWS
         run: echo 'deploy to AWS...'

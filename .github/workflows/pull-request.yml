@@ -31,7 +31,7 @@ jobs:
       - name: Build APP app
         run: pnpm build
       - name: Run Lint
-        run: pnpm lint --max-warnings=0
+        run: pnpm lint:fix && pnpm lint --max-warnings=0
       # - name: Run Test
       #   run: pnpm test
       - name: Run Formatter
