@@ -73,7 +73,7 @@ export default tseslint.config([
   },
   {
     rules: {
-      semi: ['error', 'always'],
+      semi: ['error', 'never'],
     },
   },
 ])
