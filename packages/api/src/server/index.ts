@@ -3,7 +3,7 @@ import type { DatabaseInstance } from '@repo/db/client'
 import postRouter from './router/post'
 import { createTRPCContext as createTRPCContextInternal, router } from './trpc'
 
-export const createApi = ({ auth, db }: { auth: AuthInstance; db: DatabaseInstance }) => {
+export const createAPI = ({ auth, db }: { auth: AuthInstance; db: DatabaseInstance }) => {
   return {
     trpcRouter: router({
       posts: postRouter,
