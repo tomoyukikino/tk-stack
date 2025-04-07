@@ -1,6 +1,6 @@
 import { serve } from '@hono/node-server'
 import { trpcServer } from '@hono/trpc-server'
-import { createApi } from '@repo/api/server'
+import { createAPI } from '@repo/api/server'
 import { createAuth } from '@repo/auth/server'
 import { createDb } from '@repo/db/client'
 import { Hono } from 'hono'
@@ -22,7 +22,7 @@ const auth = createAuth({
   db,
   webUrl: env.PUBLIC_WEB_URL,
 })
-const api = createApi({ auth, db })
+const api = createAPI({ auth, db })
 
 const app = new Hono<{
   Variables: {
