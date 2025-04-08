@@ -11,7 +11,8 @@
   },
   "exports": {
     "./base": "./base.js",
-    "./react": "./react.js"
+    "./react": "./react.js",
+    "./next": "./next.js"
   },
   "prettier": "@repo/prettier-config",
   "devDependencies": {
@@ -31,6 +32,8 @@
     "typescript-eslint": "catalog:"
   },
   "dependencies": {
-    "eslint-config-turbo": "catalog:"
+    "@next/eslint-plugin-next": "catalog:",
+    "eslint-config-turbo": "catalog:",
+    "eslint-plugin-next": "^0.0.0"
   }
 }
