@@ -1,4 +1,5 @@
 {
+  "name": "tk-stack",
   "private": true,
   "license": "MIT",
   "type": "module",
